@@ -1,0 +1,13 @@
+To Do
+
+1. Read through the PDA guidance and make a list of assignments needed and where they might come from in the process of the project.
+
+2. RE-read all the projects and chose which one to do. 
+
+3. Set up Github repo for the project and send to instructors by 2pm Fri.
+
+4. Draw some diagrams for the Classes needed, Objects of those classes and what their relationships are.
+
+5. Create the folders and files needed for the project to be ready to code over the weekend.
+
+6. Devise unittests for my functions to test the tables and outputs.
