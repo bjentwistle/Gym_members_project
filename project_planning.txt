@@ -1,13 +1,41 @@
 To Do
 
 1. Read through the PDA guidance and make a list of assignments needed and where they might come from in the process of the project.
+	Planning stages:
+	- P5 User site map
+	- P6 2 x wireframe diagrams
+	- P8 2 x object diagrams
+	- P10 Pseudo code for a function
+	- AD1 Use case diagram
+	- AD4 Activity diagram (different from use case)
+	- AD6 Implementation Constrains Planning
+	
+	After project is done
+	- final submission - inc a screenshot of homepage
 
 2. RE-read all the projects and chose which one to do. 
+	- Chose to do the gym project 
+"A local gym has asked you to build a piece of software to help them to manage memberships, and register members for classes."
 
 3. Set up Github repo for the project and send to instructors by 2pm Fri.
+		- https://github.com/bjentwistle/wk5_Gym_members_project
 
 4. Draw some diagrams for the Classes needed, Objects of those classes and what their relationships are.
 
 5. Create the folders and files needed for the project to be ready to code over the weekend.
+	- Done
+	- controllers/member_controller
+	- db/gym_emulator.sql & run_sql.py (Mock_members.sql - mock data)
+	- models/member.py & session.py
+	- repositories/member_repo.py & session_repo.py
+	- static/main.css
+	- templates/index.html - will need more
+	- .flaskenv
+	- app.py - for running the application.
+	- console.py - for running tests
 
-6. Devise unittests for my functions to test the tables and outputs.
+
+6. Devise unittests for my functions, to test the tables have been created and outputs from some rows.
+	- examples at https://github.com/bjentwistle/wk1day5-homework-unit-and-integration-testing/blob/main/tests/pet_shop_test.py
+
+
