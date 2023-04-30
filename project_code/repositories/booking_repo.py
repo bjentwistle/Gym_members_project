@@ -3,13 +3,26 @@ from db.run_sql import run_sql
 from models.booking import Booking
 
 #Need to be able to save gym sessions to the table
-def save(members_id, sessions_id):
-    booking =[]
-    sql = "INSERT INTO bookings (members_id, sessions_id) VALUES (%s,%s) RETURNING id"
-    values = [members_id, sessions_id]
+def save(member, session):
+    booking = []
+    member_id = member.id
+    session_id = session.id
+    sql = "INSERT INTO bookings (members_id, sessions_id) VALUES (%s, %s) RETURNING id"
+    values = [member_id, session_id]
     results = run_sql(sql, values)
     booking_id = results[0]["id"] 
-    booking = Booking[results[members_id], results[sessions_id], booking_id]
+    return booking_id
+
+#Need to be able to select booking by its ID
+def select(id):
+    booking = None
+    sql = "SELECT * FROM bookings WHERE id = %s "
+    values = [id]
+    results = run_sql(sql, values)
+    
+    if results:
+        result = results[0]
+        booking = Booking(result['members_id'], result['sessions_id'], result['id'])
     return booking
 
 
@@ -32,7 +45,6 @@ def save(members_id, sessions_id):
 #     sql = "SELECT * FROM sessions WHERE id = %s "
 #     values = [id]
 #     results = run_sql(sql, values)
-    
 #     if results:
 #         result = results[0]
 #         session = Session(result['name'], result['duration'], result['premium_session'], result['id'])

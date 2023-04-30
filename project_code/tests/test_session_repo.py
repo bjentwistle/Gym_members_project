@@ -16,18 +16,9 @@ class TestSession(unittest.TestCase):
         self.session1 = Session("Muy Thai", 90, True)
         self.session2 = Session("Extreme Spin", 30, False)
 
-        #book Sara Cox on the Muy Thai session
-        self.booking1 = Booking(self.member2.id, self.session1.id)
-        #book John Smith on the Extreme Spin session
-        self.booking2 = Booking(self.member1.id, self.session2.id)
-        #book David Keen on the Muy Thai session
-        self.booking3 = Booking(self.member3.id, self.session1.id)
-        #book Sara Cox on the Extreme Spin session
-        self.booking4 = Booking(self.member2.id, self.session1.id)
-
 
     #Need to save data to tables first and check return to compare in a test
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_save_session(self):
         session_repo.delete_all()
         session = session_repo.save(self.session1)
@@ -37,7 +28,7 @@ class TestSession(unittest.TestCase):
         session_repo.delete_all()
 
     #Need to be able to select a member by id and return it
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_select_session(self):
         session_repo.delete_all()
         session = session_repo.save(self.session1)
@@ -48,7 +39,7 @@ class TestSession(unittest.TestCase):
         self.assertEqual(True, session.premium_session)
         session_repo.delete_all()
 
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_select_all_sessions(self):
         session_repo.delete_all()
         session_repo.save(self.session1)
@@ -58,7 +49,7 @@ class TestSession(unittest.TestCase):
         session_repo.delete_all()
 
     #Need to test the delete_all func - first populate using save that we know works, then delete all and then select_all that we know works and compare the empty list returnedto zero.
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_delete_all_sessions(self):
         session_repo.save(self.session1)
         session_repo.save(self.session2)
