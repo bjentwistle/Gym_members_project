@@ -34,7 +34,7 @@ def select_all():
             members.append(member)
     return members
 
-#Delete all rows from the members table
+#Delete all rows from the members table - used for tesing purposes only
 def delete_all():
     sql = "DELETE FROM members"
     run_sql(sql)

@@ -29,9 +29,12 @@ class TestBooking(unittest.TestCase):
 
     #Need to save data to tables first and check return to compare in a test
     #session_repo and members_repo save functions have been tested already.
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_save_booking(self):
-        booking_repo.delete_all()
+        booking_repo.delete_all()        
+        member_repo.delete_all()
+        session_repo.delete_all()
+
         member = member_repo.save(self.member2)
         session = session_repo.save(self.session1)
 
@@ -40,31 +43,28 @@ class TestBooking(unittest.TestCase):
 
         self.assertEqual(member.id, booking.member_id)
         self.assertEqual(session.id, booking.session_id)
-            
+        booking_repo.delete_all()
+        member_repo.delete_all()
+        session_repo.delete_all()
 
-    # #Need to be able to select a member by id and return it
-    # @unittest.skip("comment out this line to run the test")
-    # def test_select(self):
-    #     member = member_repo.save(self.member1)
-    #     test_id = member.id
-    #     test_member = member_repo.select(test_id)
-    #     self.assertEqual("Smith", test_member.last_name)
+    #@unittest.skip("comment out this line to run the test")
+    def test_select_all_bookings(self):
+        booking_repo.delete_all()
+        member_repo.delete_all()
+        session_repo.delete_all()
 
-    # @unittest.skip("comment out this line to run the test")
-    # def test_select_all(self):
-    #     member_repo.save(self.member1)
-    #     member_repo.save(self.member2)
-    #     member_repo.save(self.member3)
-    #     list_of_members = member_repo.select_all()
-    #     self.assertEqual(3, len(list_of_members))
+        member1 = member_repo.save(self.member1)
+        member2 = member_repo.save(self.member2)
+        session1 = session_repo.save(self.session1)
 
-    # #Need to test the delete_all func - first populate using save that we know works, then delete all and then select_all that we know works and compare the empty list returnedto zero.
-    # @unittest.skip("comment out this line to run the test")
-    # def test_delete_all(self):
-    #     member_repo.save(self.member1)
-    #     member_repo.save(self.member2)
-    #     member_repo.save(self.member3)
-    #     member_repo.delete_all()
-    #     list_of_members = member_repo.select_all()
-    #     self.assertEqual(0, len(list_of_members))
+        booking_repo.save(member2, session1)
+        booking_repo.save(member1, session1)
+
+        results = booking_repo.select_all()
+        self.assertEqual(2, len(results))
+        self.assertEqual(member2.id, results[0].member_id)
+        self.assertEqual(member1.id, results[1].member_id)
+        booking_repo.delete_all()
+        member_repo.delete_all()
+        session_repo.delete_all()
 

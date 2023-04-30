@@ -33,7 +33,7 @@ def select_all():
             sessions.append(session)
     return sessions
 
-#Delete all rows from the members table
+#Delete all rows from the members table - used for tesing purposes only
 def delete_all():
     sql = "DELETE FROM sessions"
     run_sql(sql)
