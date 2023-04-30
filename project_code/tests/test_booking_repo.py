@@ -6,33 +6,33 @@ from models.booking import *
 import repositories.booking_repo as booking_repo
 
 
-class TestGym_emulator(unittest.TestCase):
+class TestBooking(unittest.TestCase):
 
     def setUp(self):
-        pass
-        # self.member1 = Member("John", "Smith", "EH3", False)
-        # self.member2 = Member("Sara", "Cox", "EH4", True)
-        # self.member3 = Member("David", "Keen", "EH1", True)
+        self.member1 = Member("John", "Smith", "EH3", False)
+        self.member2 = Member("Sara", "Cox", "EH4", True)
+        self.member3 = Member("David", "Keen", "EH1", True)
 
-        # self.session1 = Session("Muy Thai", 90, True)
-        # self.session2 = Session("Extreme Spin", 30, False)
+        self.session1 = Session("Muy Thai", 90, True)
+        self.session2 = Session("Extreme Spin", 30, False)
 
-        # #book Sara Cox on the Muy Thai session
-        # self.booking1 = Booking(self.member2.id, self.session1.id)
-        # #book John Smith on the Extreme Spin session
-        # self.booking2 = Booking(self.member1.id, self.session2.id)
-        # #book David Keen on the Muy Thai session
-        # self.booking3 = Booking(self.member3.id, self.session1.id)
-        # #book Sara Cox on the Extreme Spin session
-        # self.booking4 = Booking(self.member2.id, self.session1.id)
+        #book Sara Cox on the Muy Thai session
+        self.booking1 = Booking(self.member2.id, self.session1.id)
+        #book John Smith on the Extreme Spin session
+        self.booking2 = Booking(self.member1.id, self.session2.id)
+        #book David Keen on the Muy Thai session
+        self.booking3 = Booking(self.member3.id, self.session1.id)
+        #book Sara Cox on the Extreme Spin session
+        self.booking4 = Booking(self.member2.id, self.session1.id)
 
 
     #Need to save data to tables first and check return to compare in a test
     #@unittest.skip("comment out this line to run the test")
-    def test_save(self):
-        members_id = 1
-        sessions_id = 2
-        booking = booking_repo.save(members_id, sessions_id)
+    def test_save_booking(self):
+        booking_repo.delete_all()
+        member2_id = 2
+        session1_id = 1
+        booking = booking_repo.save(member2_id, session1_id)
         self.assertEqual(2, len(booking))
         self.assertEqual(1, booking.members_id)
         self.assertEqual(2, booking.sessions_id)

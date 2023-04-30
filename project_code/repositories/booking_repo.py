@@ -12,6 +12,20 @@ def save(members_id, sessions_id):
     booking = Booking[results[members_id], results[sessions_id], booking_id]
     return booking
 
+
+# def users_for_location(location):
+#     users = []
+
+#     sql = "SELECT users.* FROM users INNER JOIN visits ON visits.user_id = users.id WHERE location_id = %s"
+#     values = [location.id]
+#     results = run_sql(sql, values)
+
+#     for row in results:
+#         user = User(row['name'], row['id'])
+#         users.append(user)
+
+#     return users
+
 # #Need to be able to select members by theri ID
 # def select(id):
 #     session = None
@@ -35,7 +49,7 @@ def save(members_id, sessions_id):
 #             sessions.append(session)
 #     return sessions
 
-# #Delete all rows from the members table
-# def delete_all():
-#     sql = "DELETE FROM sessions"
-#     run_sql(sql)
+#Delete all rows from the members table
+def delete_all():
+    sql = "DELETE FROM bookings"
+    run_sql(sql)
