@@ -1,0 +1,38 @@
+Pseudo code for a a test function which tests the save function of the members repository.
+
+First need to save 3 members to the table of members using the save function.
+
+Save will take in take in the first name, last name, postcode and whether they are a premium member, and write an sql query to add the values given.
+
+Save then runs the sql file that connects to the database and adds the new data in a row, returning the id it gave to that new member.
+
+Save then takes the returning row from the database and converts it back into an object of Member that python can use.
+
+The test function then compares the returning object from the save function with what we expect to get back. 
+
+The self assert function in Unittest will check the details put into the save function are the same as what came out.
+
+#Mine is too much English wordy -  not enough pseudo code
+
+#Chat GPT gave me this for the select function as an example
+
+function select(id):
+    // Initialize the member variable to None
+    member = None
+    // Construct the SQL query with a placeholder for the ID parameter
+    sql = "SELECT * FROM members WHERE id = %s"
+    // Set the values to be passed to the SQL query
+    values = [id]
+    // Execute the SQL query and retrieve the results
+    results = run_sql(sql, values)
+    
+    // If there are any results
+    if results:
+        // Retrieve the first result
+        result = results[0]
+        // Construct a new Member object using the result fields
+        member = Member(result['first_name'], result['last_name'], result['postcode'], result['premium_member'], result['id'])
+    
+    // Return the member variable
+    return member
+ 
