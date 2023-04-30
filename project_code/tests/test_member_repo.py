@@ -3,8 +3,10 @@ from models.member import *
 from models.session import *
 from models.booking import *
 
+import repositories.member_repo as member_repo
 
-class Testapp(unittest.TestCase):
+
+class TestGym_emulator(unittest.TestCase):
 
     def setUp(self):
         self.member1 = Member("John", "Smith", "EH3", False)
@@ -24,8 +26,49 @@ class Testapp(unittest.TestCase):
         self.booking4 = Booking(self.member2.id, self.session1.id)
 
 
+    #Need to save data to tables first and check return to compare in a test
+    @unittest.skip("comment out this line to run the test")
+    def test_save(self):
+        member = member_repo.save(self.member1)
+        self.assertEqual("John", member.first_name)
+        self.assertEqual("Smith", member.last_name)
+        self.assertEqual("EH3", member.postcode)
+        self.assertEqual(False, member.premium_member)
+            
+
+    #Need to be able to select a member by id and return it
+    @unittest.skip("comment out this line to run the test")
+    def test_select(self):
+        member = member_repo.save(self.member1)
+        test_id = member.id
+        test_member = member_repo.select(test_id)
+        self.assertEqual("Smith", test_member.last_name)
+
+    @unittest.skip("comment out this line to run the test")
+    def test_select_all(self):
+        member_repo.save(self.member1)
+        member_repo.save(self.member2)
+        member_repo.save(self.member3)
+        list_of_members = member_repo.select_all()
+        self.assertEqual(3, len(list_of_members))
+
+    #Need to test the delete_all func - first populate using save that we know works, then delete all and then select_all that we know works and compare the empty list returnedto zero.
+    @unittest.skip("comment out this line to run the test")
+    def test_delete_all(self):
+        member_repo.save(self.member1)
+        member_repo.save(self.member2)
+        member_repo.save(self.member3)
+        member_repo.delete_all()
+        list_of_members = member_repo.select_all()
+        self.assertEqual(0, len(list_of_members))
 
 
+
+
+#@unittest.skip("delete this line to run the test")
+# def test_pet_shop_name(self):
+#     name = get_pet_shop_name(self.cc_pet_shop)
+#     self.assertEqual("Camelot of Pets", name)
 
 #Starter code for reminders
 # import pdb

@@ -1,5 +1,5 @@
 class Session:
-    def __init__(self, id = None, name, duration, premium_session):
+    def __init__(self, name, duration, premium_session, id = None):
         self.id = id
         self.name = name
         self.duration = duration
