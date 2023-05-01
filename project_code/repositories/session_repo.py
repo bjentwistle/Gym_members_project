@@ -10,7 +10,7 @@ def save(session):
     session.id = results[0]["id"] 
     return session
 
-#Need to be able to select members by theri ID
+#Need to be able to select members by their ID
 def select(id):
     session = None
     sql = "SELECT * FROM sessions WHERE id = %s "
@@ -31,6 +31,7 @@ def select_all():
         for result in results:
             session = Session(result['name'], result['duration'], result['premium_session'], result['id'])
             sessions.append(session)
+        sessions.sort(key=lambda x: x.id) #from google 'sorting an object' so my sessions list stays in id order after updating. 
     return sessions
 
 def update(session):

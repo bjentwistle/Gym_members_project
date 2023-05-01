@@ -2,21 +2,7 @@
 
 {% block content %}
 
-<h1 class="single_session"> Session details -  </h1> 
-    <div>
-        <h4>Name - {{ session.name }}</h4>
-        <p>Duration in minutes - {{ session.duration  }} </p>
-        <p>Premium Session? -   
-        {% if session.premium_session == True %}
-            Yes
-        {% else %}
-            <i> No </i>
-        {% endif %} </p>
-        {# May wish to put in a day and time here #}
-        <p> </p>
-    </div>
-
-<form action="/sessions/{{session.id}}" method="post">
+<form action="/sessions/{{session.id}}/edit" method="post">
 <div>
     <label for="name">Name </label>
     <input type="text" id="name" name="name" value="{{session.name}}" required autofocus>
