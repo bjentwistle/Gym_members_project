@@ -38,3 +38,4 @@ def select_all():
 def delete_all():
     sql = "DELETE FROM members"
     run_sql(sql)
+

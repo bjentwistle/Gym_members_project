@@ -7,6 +7,10 @@
     <img src="{{ url_for('static', filename='feet_weight_unsplash.jpg') }}" alt = "feet and round weight" style='width:100%;'>
 </div>
 
+<a href = "members/new" > Add new member</a> 
+<hr>
+
+
 <div class = "session-container">
 {% for member in members %}
 
@@ -14,8 +18,7 @@
 <h2>Name: {{ member.first_name }} {{member.last_name}} </h2>
 <h3> Postcode: {{ member.postcode }} </h3>
 <p> Premium Member: {{ member.premium_member }} </p>
-<a href = "/members/{{ members.index(member)+1 }}" > Show member's details </a> <!--add a link to each book selected by index in orders /-->
-<hr>
+<a href = "/members/{{ members.index(member)+1 }}" > Show member's details </a> <hr>
 
 {# 
     {% if book.loaned %}

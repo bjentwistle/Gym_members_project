@@ -18,4 +18,28 @@ def show_all_members():
 @members_blueprint.route("/members/<id>")
 def show_member_index(id):
     member = member_repo.select(id)
-    return render_template("members/single_member.jinja", member = member)
+    return render_template("/members/single_member.jinja", member = member)
+
+@members_blueprint.route('/members/new')
+def add_member():
+    # first_name = request.form['first_name']
+    # last_name = request.form['last_name']
+    # postcode = request.form['postcode']
+    # premium_member = True if 'premium_member' in request.form else False # will cause errors if not ticked hence else False is needed.
+    
+    # new_member = Member(first_name, last_name, postcode, premium_member)
+    # member_repo.save(new_member)
+    # return redirect("/members")
+    return render_template('members/new.jinja')
+
+@members_blueprint.route('/members/new', methods = ["POST"])
+def submit_member():
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    postcode = request.form['postcode']
+    premium_member = True if 'premium_member' in request.form else False # will cause errors if not ticked hence else False is needed.
+    
+    new_member = Member(first_name, last_name, postcode, premium_member)
+    member_repo.save(new_member)
+    return redirect("/members")
+
