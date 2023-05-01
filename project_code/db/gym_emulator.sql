@@ -22,9 +22,9 @@ CREATE TABLE sessions (
 
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
-    -- members_id INT REFERENCES members(id) ON DELETE CASCADE,
-    members_id INT ,
-    -- sessions_id INT REFERENCES sessions(id) ON DELETE CASCADE
-    sessions_id INT 
+    members_id INT REFERENCES members(id) ON DELETE CASCADE,
+    -- members_id INT ,
+    sessions_id INT REFERENCES sessions(id) ON DELETE CASCADE
+    -- sessions_id INT 
 
 );

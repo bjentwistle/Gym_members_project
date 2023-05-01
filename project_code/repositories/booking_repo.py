@@ -40,3 +40,6 @@ def select_all():
 def delete_all():
     sql = "DELETE FROM bookings"
     run_sql(sql)
+
+
+#Show all members in one booking

@@ -17,15 +17,6 @@ class TestBooking(unittest.TestCase):
         self.session1 = Session("Muy Thai", 90, True)
         self.session2 = Session("Extreme Spin", 30, False)
 
-        # #book Sara Cox on the Muy Thai session
-        # self.booking1 = Booking(self.member2.id, self.session1.id)
-        # #book John Smith on the Extreme Spin session
-        # self.booking2 = Booking(self.member1.id, self.session2.id)
-        # #book David Keen on the Muy Thai session
-        # self.booking3 = Booking(self.member3.id, self.session1.id)
-        # #book Sara Cox on the Extreme Spin session
-        # self.booking4 = Booking(self.member2.id, self.session1.id)
-
 
     #Need to save data to tables first and check return to compare in a test
     #session_repo and members_repo save functions have been tested already.
@@ -61,9 +52,11 @@ class TestBooking(unittest.TestCase):
         booking_repo.save(member1, session1)
 
         results = booking_repo.select_all()
+
         self.assertEqual(2, len(results))
         self.assertEqual(member2.id, results[0].member_id)
         self.assertEqual(member1.id, results[1].member_id)
+        
         booking_repo.delete_all()
         member_repo.delete_all()
         session_repo.delete_all()
