@@ -33,6 +33,11 @@ def select_all():
             sessions.append(session)
     return sessions
 
+def update(session):
+    sql = "UPDATE sessions SET (name, duration, premium_session) = (%s, %s, %s) WHERE id = %s"
+    values = [session.name, session.duration, session.premium_session, session.id]
+    run_sql(sql, values)
+
 #Delete all rows from the members table - used for tesing purposes only
 def delete_all():
     sql = "DELETE FROM sessions"

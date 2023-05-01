@@ -1,6 +1,6 @@
 from flask import render_template, redirect, request
 from flask import Blueprint
-from models.member import *
+from models.session import *
 
 import repositories.member_repo as member_repo
 import repositories.booking_repo as booking_repo 
@@ -20,3 +20,35 @@ def show_session_index(id):
     session = session_repo.select(id)
     return render_template("sessions/single_session.jinja", session = session)
 
+@sessions_blueprint.route('/sessions/new')
+def add_session():
+    return render_template('sessions/new.jinja')
+
+@sessions_blueprint.route('/sessions/new', methods = ["POST"])
+def submit_session():
+    name = request.form['name']
+    duration = request.form['duration']
+    premium_session = True if 'premium_session' in request.form else False # will cause errors if not ticked hence else False is needed.
+    
+    new_session = Session(name, duration, premium_session)
+    session_repo.save(new_session)
+    return redirect("/sessions")
+
+# EDIT
+# GET '/sessions/<id>/edit'
+@sessions_blueprint.route('/sessions/<id>/edit')
+def edit_session(id):
+    session =session_repo.select(id)
+    return render_template('sessions/edit.jinja', id = id, session = session)
+
+# UPDATE
+# PUT '/sessions/<id>/edit'
+@sessions_blueprint.route("/sessions/<id>/edit", methods=['POST'])
+def update_session(id):
+    name = request.form['name']
+    duration = request.form['duration']
+    premium_session = request.form["premium_session"]
+
+    session = Session(name, duration, premium_session, id)
+    session_repo.update(session)
+    return redirect('/sessions')

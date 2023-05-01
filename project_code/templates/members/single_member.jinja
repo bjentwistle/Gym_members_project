@@ -5,12 +5,21 @@
 <body>
     <h1 class="single_member"> Member details for </h1> 
     <div>
-        <h3>First Name: {{ member.first_name }} {{ member.last_name }}</h3>
-        <p> Postcode: {{ member.postcode  }} </p>
-        <p>Premium Member: {{ member.premium_member  }}</p>
+        <h4>Name - {{ member.first_name }} {{ member.last_name }}</h4>
+        <p> Postcode - {{ member.postcode  }} </p>
+        <p>Premium Member? -
+        {% if session.premium_session == True %}
+            Yes
+        {% else %}
+            <i> No </i>
+        {% endif %} </p>
 
+        <a href = "/members/edit"> Edit member </a>
     </div>
-    <a href = "/all_members"> Back to all members</a>
+    <hr>
+
+    <a href = "/members"> Back to all members</a>
+    <p> </p>
 </body>
 
 {% endblock %}

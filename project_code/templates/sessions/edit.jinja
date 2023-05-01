@@ -1,0 +1,51 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+
+<h1 class="single_session"> Session details -  </h1> 
+    <div>
+        <h4>Name - {{ session.name }}</h4>
+        <p>Duration in minutes - {{ session.duration  }} </p>
+        <p>Premium Session? -   
+        {% if session.premium_session == True %}
+            Yes
+        {% else %}
+            <i> No </i>
+        {% endif %} </p>
+        {# May wish to put in a day and time here #}
+        <p> </p>
+    </div>
+
+<form action="/sessions/{{session.id}}" method="post">
+<div>
+    <label for="name">Name </label>
+    <input type="text" id="name" name="name" value="{{session.name}}" required autofocus>
+</div>
+
+<div>
+    <label for="duration">Duration </label>
+    <input type="number" id="duration" name="duration" value="{{session.duration}}" required>
+</div>
+
+<div>
+    <label for="premium_session">Premium_session </label>
+    <select id="premium_session" name="premium_session">
+
+    <option value="true"
+        {% if session.premium_session == True %} selected="selected" {% endif %}>
+        Yes
+    </option>
+
+    <option value="false"
+        {% if session.premium_session == False %} selected="selected" {% endif %}>
+        No
+    </option>
+
+    </select>
+</div>
+
+<button type="submit">Update session</button>
+
+</form>
+
+{% endblock %}

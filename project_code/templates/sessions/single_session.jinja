@@ -5,10 +5,17 @@
 <body>
     <h1 class="single_session"> Session details for {{ session.name }} </h1> 
     <div>
-        <h3>Name: {{ session.name }}</h3>
-        <p> Duration: {{ session.duration  }} </p>
-        <p>Premium Session: {{ session.premium_session  }}</p>
-
+        <h4>Name - {{ session.name }}</h4>
+        <p>Duration in minutes - {{ session.duration  }} </p>
+        <p>Premium Session? -   
+        {% if session.premium_session == True %}
+            Yes
+        {% else %}
+            <i> No </i>
+        {% endif %} </p>
+        {# May wish to put in a day and time here #}
+        <a href = "/sessions/<id>/edit"> Edit session </a>
+        <p> </p>
     </div>
     <a href = "/sessions"> Back to all sessions</a>
 </body>

@@ -6,8 +6,10 @@
     <div class="centered"><strong>CC Gym Admin</strong></div>
     <img src="{{ url_for('static', filename='feet_weight_unsplash.jpg') }}" alt = "feet and round weight" style='width:100%;'>
 </div>
-
+<hr>
+<p></p>
 <a href = "members/new" > Add new member</a> 
+<p></p>
 <hr>
 
 
@@ -15,10 +17,15 @@
 {% for member in members %}
 
 <div class = "member">
-<h2>Name: {{ member.first_name }} {{member.last_name}} </h2>
-<h3> Postcode: {{ member.postcode }} </h3>
-<p> Premium Member: {{ member.premium_member }} </p>
-<a href = "/members/{{ members.index(member)+1 }}" > Show member's details </a> <hr>
+<h3>Name - {{ member.first_name }} {{member.last_name}} </h3>
+<p> Postcode - {{ member.postcode }} </p>
+<p> Premium Member? - 
+        {% if session.premium_session == True %}
+            Yes
+        {% else %}
+            <i> No </i>
+        {% endif %} </p>
+<a href = "/members/{{ members.index(member)+1 }}" > Show details </a> <hr>
 
 {# 
     {% if book.loaned %}

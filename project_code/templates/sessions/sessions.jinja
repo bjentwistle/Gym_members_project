@@ -6,26 +6,29 @@
     <div class="centered"><strong>CC Gym Admin</strong></div>
     <img src="{{ url_for('static', filename='feet_weight_unsplash.jpg') }}" alt = "feet and round weight" style='width:100%;'>
 </div>
+<hr>
+<p></p>
+<a href = "sessions/new" > Add new session</a> 
+<p></p>
+<hr>
 
 <div class = "session-container">
 {% for session in sessions %}
 
 <div class = "session">
-<h2> Session: {{ session.name}} </h2>
-<h3> Duration: {{ session.duration }} </h3>
-<p> Premium: {{ session.premium_session }} </p>
-<a href = "/sessions/{{ sessions.index(session)+1 }}" > Show session details </a> <!--add a link to each book selected by index in orders /-->
+<h3> Session - {{ session.name}} </h3>
+<p> Duration -  {{ session.duration }} </p>
+<p> Premium Session? -
+        {% if session.premium_session == True %}
+            Yes
+        {% else %}
+            <i> No </i>
+        {% endif %} </p>
+</p></p>
+{# May wish to put in a day and time here #}
+<a href = "/sessions/{{ sessions.index(session)+1 }}" > Show details </a> <!--add a link to each book selected by index in orders /-->
 <hr>
 
-{# 
-    {% if book.loaned %}
-    <p><i> Loaned </i></p>
-    {% endif %} #}
-
-
-    {# <form class = 'form-inline-delete' action='/books/delete/{{book.unique_id}}' method= 'post'>
-        <input type = 'submit' value = 'Delete Book' style = "border:none">
-    </form> #}
 
 </div>
 
