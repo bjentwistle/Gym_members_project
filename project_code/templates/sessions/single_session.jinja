@@ -1,0 +1,16 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+
+<body>
+    <h1 class="single_session"> Session details for {{ session.name }} </h1> 
+    <div>
+        <h3>Name: {{ session.name }}</h3>
+        <p> Duration: {{ session.duration  }} </p>
+        <p>Premium Session: {{ session.premium_session  }}</p>
+
+    </div>
+    <a href = "/sessions"> Back to all sessions</a>
+</body>
+
+{% endblock %}

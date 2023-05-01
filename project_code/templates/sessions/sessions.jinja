@@ -4,7 +4,7 @@
 {% block content %}
 <div class = top-border>
     <div class="centered"><strong>CC Gym Admin</strong></div>
-    <img src="{{ url_for('static', filename='feet_weight_unsplash.jpg') }}" alt = "feet and round weight" style='width:20%;'>
+    <img src="{{ url_for('static', filename='feet_weight_unsplash.jpg') }}" alt = "feet and round weight" style='width:100%;'>
 </div>
 
 <div class = "session-container">
@@ -13,8 +13,9 @@
 <div class = "session">
 <h2> Session: {{ session.name}} </h2>
 <h3> Duration: {{ session.duration }} </h3>
-<a href = "/sessions/{{ sessions.index(session) }}" > Show session details </a> <!--add a link to each book selected by index in orders /-->
 <p> Premium: {{ session.premium_session }} </p>
+<a href = "/sessions/{{ sessions.index(session)+1 }}" > Show session details </a> <!--add a link to each book selected by index in orders /-->
+<hr>
 
 {# 
     {% if book.loaned %}
