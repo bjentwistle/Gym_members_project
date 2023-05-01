@@ -34,21 +34,6 @@ def submit_session():
     session_repo.save(new_session)
     return redirect("/sessions")
 
-#Chat GPT offerings - 
-# @sessions_blueprint.route('/sessions/<id>/edit', methods=['GET', 'POST'])
-# def edit_session(id):
-#     edit_session = session_repo.select(id)
-#     if request.method == 'POST':
-#         # Handle form submission here
-#         edit_session.name = request.form['name']
-#         edit_session.description = request.form['description']
-#         session_repo.update(edit_session)
-#         #flash('Session updated successfully!')
-#         return redirect('sessions.index')
-#     else:
-#         # Render the form for editing
-#         return render_template('sessions/edit.jinja', session=edit_session)
-
 
 # EDIT
 # GET '/sessions/<id>/edit'

@@ -13,7 +13,7 @@
 <hr>
 
 
-<div class = "session-container">
+<div class = "member-container">
 {% for member in members %}
 
 <div class = "member">
@@ -25,17 +25,7 @@
         {% else %}
             <i> No </i>
         {% endif %} </p>
-<a href = "/members/{{ members.index(member)+1 }}" > Show details </a> <hr>
-
-{# 
-    {% if book.loaned %}
-    <p><i> Loaned </i></p>
-    {% endif %} #}
-
-
-    {# <form class = 'form-inline-delete' action='/books/delete/{{book.unique_id}}' method= 'post'>
-        <input type = 'submit' value = 'Delete Book' style = "border:none">
-    </form> #}
+<a href = "/members/{{ member.id }}" > Show details </a> <hr>
 
 </div>
 

@@ -1,0 +1,40 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+
+<form action="/members/{{member.id}}/edit" method="post">
+<div>
+    <label for="name">First Name </label>
+    <input type="text" id="name" name="name" value="{{member.first_name}}" required autofocus>
+</div>
+<div>
+    <label for="name">Last Name </label>
+    <input type="text" id="name" name="name" value="{{member.last_name}}" required autofocus>
+</div>
+<div>
+    <label for="postcode">Postcode </label>
+    <input type="text" id="postcode" name="postcode" value="{{member.postcode}}" required>
+</div>
+
+<div>
+    <label for="premium_member">Premium member </label>
+    <select id="premium_member" name="premium_member">
+
+    <option value="true"
+        {% if member.premium_member == True %} selected="selected" {% endif %}>
+        Yes
+    </option>
+
+    <option value="false"
+        {% if member.premium_member == False %} selected="selected" {% endif %}>
+        No
+    </option>
+
+    </select>
+</div>
+
+<button type="submit">Update member</button>
+
+</form>
+
+{% endblock %}
