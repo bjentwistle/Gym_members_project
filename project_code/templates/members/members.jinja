@@ -1,0 +1,36 @@
+{% extends "base.jinja" %}
+
+
+{% block content %}
+<div class = top-border>
+    <div class="centered"><strong>CC Gym Admin</strong></div>
+    <img src="{{ url_for('static', filename='feet_weight_unsplash.jpg') }}" alt = "feet and round weight" style='width:100%;'>
+</div>
+
+<div class = "session-container">
+{% for member in members %}
+
+<div class = "member">
+<h2>Name: {{ member.first_name }} {{member.last_name}} </h2>
+<h3> Postcode: {{ member.postcode }} </h3>
+<p> Premium Member: {{ member.premium_member }} </p>
+<a href = "/members/{{ members.index(member)+1 }}" > Show member's details </a> <!--add a link to each book selected by index in orders /-->
+<hr>
+
+{# 
+    {% if book.loaned %}
+    <p><i> Loaned </i></p>
+    {% endif %} #}
+
+
+    {# <form class = 'form-inline-delete' action='/books/delete/{{book.unique_id}}' method= 'post'>
+        <input type = 'submit' value = 'Delete Book' style = "border:none">
+    </form> #}
+
+</div>
+
+{% endfor %}
+</div>
+
+{% endblock %}
+
