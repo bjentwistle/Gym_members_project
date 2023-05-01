@@ -1,5 +1,3 @@
-# from db.run_sql import run_sql
-
 from flask import Flask, render_template
 
 from controllers.sessions_controller import sessions_blueprint

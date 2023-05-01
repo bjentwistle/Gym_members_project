@@ -9,6 +9,7 @@ import repositories.session_repo as session_repo
 sessions_blueprint = Blueprint("sessions", __name__)
 
 
-# @sessions_blueprint.route("/home")
-# def home():
-#     return render_template('index.jinja', title = "Home Page")
+@sessions_blueprint.route("/sessions")
+def show_all_sessions():
+    sessions = session_repo.select_all()
+    return render_template('/sessions/sessions.jinja', title = "All sessions page", sessions = sessions)

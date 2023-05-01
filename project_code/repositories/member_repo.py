@@ -8,7 +8,7 @@ def save(member):
     sql = "INSERT INTO members (first_name, last_name, postcode, premium_member) VALUES (%s,%s,%s,%s) RETURNING id"
     values = [member.first_name, member.last_name, member.postcode, member.premium_member]
     results = run_sql(sql, values)
-    member.id = results[0]["id"]  #added member
+    member.id = results[0]["id"]  #added to member
     return member
 
 #Need to be able to select members by theri ID
