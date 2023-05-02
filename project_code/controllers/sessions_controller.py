@@ -46,7 +46,7 @@ def edit_session(id):
 # PUT '/sessions/<id>/edit'
 @sessions_blueprint.route("/sessions/<id>/edit", methods=['POST'])
 def update_session(id):
-    session = session_repo.select(id)
+    session_repo.select(id)
     name = request.form['name']
     duration = request.form['duration']
     premium_session = request.form["premium_session"]

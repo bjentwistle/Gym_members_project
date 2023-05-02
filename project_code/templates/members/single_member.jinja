@@ -3,9 +3,10 @@
 {% block content %}
 
 <body>
-    <h1 class="single_member"> Member details for </h1> 
+    <h1 class="single_member"> Member details: </h1> 
     <div>
-        <h4>Name - {{ member.first_name }} {{ member.last_name }}</h4>
+        <h4>First name - {{ member.first_name }} </h4> 
+        <h4>Last name - {{ member.last_name }}</h4>
         <p> Postcode - {{ member.postcode  }} </p>
         <p>Premium Member? -
         {% if session.premium_session == True %}
