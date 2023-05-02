@@ -14,7 +14,7 @@ def save(member, session):
     results = run_sql(sql, values)
     booking_id = results[0]["id"] 
     booking = Booking(member, session, booking_id)
-    print(booking.member.first_name)
+    #print(booking.member.first_name)
     return booking
 
 #Need to be able to select booking by its ID
@@ -48,9 +48,14 @@ def select_all():
     return bookings
 
 #Delete all rows from the bookings table - used for tesing purposes only
-def delete_all():
+def delete_all_bookings():
     sql = "DELETE FROM bookings"
     run_sql(sql)
 
-
+#???
 #Show all members in one booking
+def show_all_members_for_booking(id):
+    sql = "SELECT members.first_name, members.last_name  FROM members  INNER JOIN bookings   ON member.id = booking.member_id WHERE session_id = %s"
+    values = id
+    results = run_sql(sql, values)
+    return results

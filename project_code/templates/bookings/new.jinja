@@ -8,24 +8,22 @@
     <label class = label for="session">Select a session</label>
         <select name="session_id" id="session">
             {% for session in sessions%}
-                <option value = "{{ session.name}}" >{{ session.name}} </option>
+                <option value = "{{ session.id}}" >{{ session.name}} </option>
             {% endfor %}
         </select>
 
     <label class = label for="member">Select a member</label>
         <select name="member_id" id="member">
             {% for member in members%}
-                <option value = "{{ member_id}}">{{member.first_name}} {{member.last_name}}</option>
+                <option value = "{{ member.id }}">{{member.first_name}} {{member.last_name}}</option>
             {% endfor %}
         </select>
 
     <label class = label for="permium_member">Premium member?</label>
     <input type="checkbox" name="premium_member" id="premium_member" >
 
-    <input class = add_session type="submit" value="Add Session" style="font-weight: bold;">
+    <input class = add_session type="submit" value="Add Booking" style="font-weight: bold;">
     </form>
     </a>
-
-
 
 {% endblock %}
