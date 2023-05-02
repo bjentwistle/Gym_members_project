@@ -39,7 +39,7 @@ def update(session):
     values = [session.name, session.duration, session.premium_session, session.id]
     run_sql(sql, values)
 
-#Delete all rows from the members table - used for tesing purposes only
+#Delete all rows from the sessions table - used for tesing purposes only
 def delete_all():
     sql = "DELETE FROM sessions"
     run_sql(sql)

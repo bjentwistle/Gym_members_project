@@ -1,0 +1,25 @@
+{% extends "base.jinja" %}
+
+
+{% block content %}
+<div class = top-border>
+    <div class="centered"><strong>CC Gym Admin</strong></div>
+    <img src="{{ url_for('static', filename='feet_weight_unsplash.jpg') }}" alt = "feet and round weight" style='width:100%;'>
+</div>
+<hr>
+
+<div class = "booking-container">
+<h2> Bookings for {{session.name}}</h2>
+
+{% for booking in bookings %}
+
+<div class = "booking">
+<p> Member - {{ booking.member.first_name}} {{ booking.member.last_name}} </p>
+
+
+</p>
+</p>
+<hr>
+</div>
+
+{% endfor %}

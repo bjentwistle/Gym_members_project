@@ -2,6 +2,8 @@
 
 
 {% block content %}
+<form action="/bookings/{{session.id}}/booked_members" method="get">
+
 <div class = top-border>
     <div class="centered"><strong>CC Gym Admin</strong></div>
     <img src="{{ url_for('static', filename='feet_weight_unsplash.jpg') }}" alt = "feet and round weight" style='width:100%;'>
@@ -9,6 +11,17 @@
 <hr>
 <p></p>
 <a href = "bookings/new" > Add new booking</a> 
+<p>
+    <label class = label for="session">Select a session</label>
+        <select name="session" id="session">
+            {% for session in sessions%}
+                <option value = "{{ session.id}}" >{{ session.name}} </option>
+            {% endfor %}
+        </select>
+    <button type="submit">Update member</button>
+        {# <input class = view_session_bookings type="submit" value="View Session Bookings" style="font-weight: bold;"> #}
+    </form>
+</p>
 <p></p>
 <hr>
 
@@ -18,19 +31,10 @@
 <div class = "booking">
 <p> Member - {{ booking.member.first_name}} {{ booking.member.last_name}} </p>
 <p> Session -  {{ booking.session.name }} </p>
-{# <p> Premium Session? -
-        {% if session.premium_session == True %}
-            Yes
-        {% else %}
-            <i> No </i>
-        {% endif %} 
-</p> #}
-</p>
-</p>
-{# May wish to put in a day and time here #}
-<a href = "/booking/{{ booking.id }}" > Show details </a> 
-<hr>
 
+</p>
+</p>
+<hr>
 </div>
 
 {% endfor %}

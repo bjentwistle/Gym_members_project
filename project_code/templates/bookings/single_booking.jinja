@@ -1,0 +1,27 @@
+{# {% extends "base.jinja" %}
+
+
+Not being used yet
+
+
+{% block content %}
+
+<body>
+    <h1 class="single_session"> Session details: </h1> 
+    <div>
+        <h4>Name - {{ session.name }}</h4>
+        <p>Duration in minutes - {{ session.duration  }} </p>
+        <p>Premium Session? -   
+        {% if session.premium_session == True %}
+            Yes
+        {% else %}
+            <i> No </i>
+        {% endif %} </p>
+        {# May wish to put in a day and time here #}
+        <a href = "/sessions/{{session.id}}/edit"> Edit session </a>
+        <p> </p>
+    </div>
+    <a href = "/sessions"> Back to all sessions</a>
+</body>
+
+{% endblock %} #}

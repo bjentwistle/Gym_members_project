@@ -9,7 +9,7 @@
         <h4>Last name - {{ member.last_name }}</h4>
         <p> Postcode - {{ member.postcode  }} </p>
         <p>Premium Member? -
-        {% if session.premium_session == True %}
+        {% if member.premium_member == True %}
             Yes
         {% else %}
             <i> No </i>

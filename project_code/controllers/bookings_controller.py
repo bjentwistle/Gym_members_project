@@ -11,7 +11,8 @@ bookings_blueprint = Blueprint("bookings", __name__)
 @bookings_blueprint.route("/bookings")
 def show_all_bookings():
     bookings = booking_repo.select_all()
-    return render_template("/bookings/bookings.jinja", bookings = bookings)
+    sessions = session_repo.select_all()
+    return render_template("/bookings/bookings.jinja", bookings = bookings, sessions= sessions)
 
 @bookings_blueprint.route("/bookings/new")
 def add_session():
@@ -23,16 +24,18 @@ def add_session():
 def submit_new_booking():
     session_id = request.form['session_id']
     member_id = request.form['member_id']
-    premium_member = 'premium_member' in request.form
     
     member = member_repo.select(member_id)
-    print(member)
+
     session = session_repo.select(session_id)
-    print(session)
-    if premium_member == session.premium_session:
+    booking_repo.save(member, session)
+    return redirect("/bookings")
 
-        booking_repo.save(member, session)
-        return redirect("/bookings")
-    else:
+#to view all the bookings for one session  
+@bookings_blueprint.route("/bookings/<id>/booked_members")  
+def view_session_bookings(id):
 
-        return redirect("/bookings/new")
+    results = booking_repo.view_session(id)
+    session=session_repo.select(id)
+
+    return render_template("/bookings/booked_members.jinja", bookings = results, session = session)

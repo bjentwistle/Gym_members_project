@@ -34,13 +34,12 @@ def select_all():
             members.append(member)
     return members
 
+def update(member):
+    sql = "UPDATE members SET (first_name, last_name, postcode, premium_member) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [member.first_name, member.last_name, member.postcode, member.premium_member, member.id]
+    run_sql(sql, values)
+
 #Delete all rows from the members table - used for tesing purposes only
 def delete_all():
     sql = "DELETE FROM members"
     run_sql(sql)
-
-
-def update(member):
-    sql = "UPDATE members SET (first_name, last_name, postcode, premium_member) = (%s, %s, %s) WHERE id = %s"
-    values = [member.first_name, member.last_name, member.postcode, member.premium_member, member.id]
-    run_sql(sql, values)
