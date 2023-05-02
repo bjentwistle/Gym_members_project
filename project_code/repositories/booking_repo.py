@@ -2,6 +2,9 @@ from db.run_sql import run_sql
 
 from models.booking import Booking
 
+from repositories import member_repo
+from repositories import session_repo
+
 #Need to be able to save gym sessions to the table
 def save(member, session):
     member_id = member.id
@@ -32,8 +35,13 @@ def select_all():
     if results:
         for result in results:
             booking = Booking(result['members_id'], result['sessions_id'], result['id'])
+            # member_id = booking{"member_id"}
+            # session_id = booking["session_id"]
+            # member = member_repo.select(member_id)
+            # session= session_repo.select(session_id)
+            # booking = [booking.id, member, session]
+            # print("This is my booking list with two objects in: ", booking)
             bookings.append(booking)
-            #print(booking)
     return bookings
 
 #Delete all rows from the bookings table - used for tesing purposes only

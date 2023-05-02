@@ -17,7 +17,3 @@ def home():
 if __name__ == '__main__':
     app.run(debug=True)
 
-#Using Mockaroo.com I could feed mick member data into the database using this for loop and with open function:
-# with open("db/members.sql", "r") as sql_file:
-#     for line in sql_file:
-#         run_sql(line)

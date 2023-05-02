@@ -1,0 +1,39 @@
+{% extends "base.jinja" %}
+
+
+{% block content %}
+<div class = top-border>
+    <div class="centered"><strong>CC Gym Admin</strong></div>
+    <img src="{{ url_for('static', filename='feet_weight_unsplash.jpg') }}" alt = "feet and round weight" style='width:100%;'>
+</div>
+<hr>
+<p></p>
+<a href = "bookings/new" > Add new booking</a> 
+<p></p>
+<hr>
+
+<div class = "booking-container">
+{% for booking in bookings %}
+
+<div class = "booking">
+<p> Member - {{ booking.member_id}} </p>
+<p> Session -  {{ booking.session_id }} </p>
+{# <p> Premium Session? -
+        {% if session.premium_session == True %}
+            Yes
+        {% else %}
+            <i> No </i>
+        {% endif %} 
+</p> #}
+</p>
+</p>
+{# May wish to put in a day and time here #}
+<a href = "/booking/{{ booking.id }}" > Show details </a> 
+<hr>
+
+</div>
+
+{% endfor %}
+</div>
+
+{% endblock %}
