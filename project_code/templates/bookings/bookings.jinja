@@ -16,8 +16,8 @@
 {% for booking in bookings %}
 
 <div class = "booking">
-<p> Member - {{ booking.member_id}} </p>
-<p> Session -  {{ booking.session_id }} </p>
+<p> Member - {{ booking[0]}} {{ booking[1]}} </p>
+<p> Session -  {{ booking[2] }} </p>
 {# <p> Premium Session? -
         {% if session.premium_session == True %}
             Yes

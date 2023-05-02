@@ -30,19 +30,19 @@ def select(id):
 #Need a function to select all the rows in the table of bookings
 def select_all():
     bookings = []
-    sql = "SELECT * FROM bookings"
+    sql = " SELECT bookings.id, members.first_name, members.last_name, sessions.name FROM ((bookings INNER JOIN members ON bookings.members_id = members.id) INNER JOIN sessions ON bookings.sessions_id = sessions.id)"
     results = run_sql(sql)
+    print(results)
+    # [[1, 'Sara', 'Cox', 'Muy Thai'], 
+    # [2, 'John', 'Smith', 'Extreme Spin'], 
+    # [3, 'David', 'Keen', 'Muy Thai']]
     if results:
         for result in results:
-            booking = Booking(result['members_id'], result['sessions_id'], result['id'])
-            # member_id = booking{"member_id"}
-            # session_id = booking["session_id"]
-            # member = member_repo.select(member_id)
-            # session= session_repo.select(session_id)
-            # booking = [booking.id, member, session]
-            # print("This is my booking list with two objects in: ", booking)
+            booking = [result['first_name'], result['last_name'], result['name'], result['id']]
+            #first_name = result["members.first_name"]
             bookings.append(booking)
     return bookings
+    return results
 
 #Delete all rows from the bookings table - used for tesing purposes only
 def delete_all():
