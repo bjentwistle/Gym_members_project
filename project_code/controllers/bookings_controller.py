@@ -13,3 +13,9 @@ bookings_blueprint = Blueprint("bookings", __name__)
 def show_all_bookings():
     bookings = booking_repo.select_all()
     return render_template("/bookings/bookings.jinja", bookings = bookings)
+
+@bookings_blueprint.route("/bookings/new")
+def add_session():
+    members = member_repo.select_all()
+    sessions = session_repo.select_all()
+    return render_template('bookings/new.jinja', members = members, sessions = sessions)
