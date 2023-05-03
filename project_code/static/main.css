@@ -20,12 +20,12 @@ header {
     size: auto;
     height: auto;
     display: flex;
-    color: black;
+    flex-direction: row;
     align-items: top;
     justify-self: center;
     position: relative;
     text-align: center;
-    border: 15px solid rgb(54, 48, 98, 0.5);
+    border: 10px solid rgb(54, 48, 98, 0.5);
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -60,7 +60,7 @@ header {
     height: 250px;
     max-width: 100%;     /* Set the max-width property to 100% */
     margin: 20px,20px,20px,20px;
-    border: 5px solid #555;
+    border: 5px solid rgb(54, 48, 98, 0.5)
     }
 
 .copyright {

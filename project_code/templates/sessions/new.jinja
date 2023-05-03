@@ -17,14 +17,23 @@
     <label class = label for="what_time">When</label>
     <input type="text" name="what_time" id="what_time">
 
-    {# May wish to put in a day and time here #}
-
     <label class = label for="permium_member">Premium member?</label>
     <input type="checkbox" name="premium_member" id="premium_member" >
 
     <input class = add_session type="submit" value="Add Session" style="font-weight: bold;">
     </form>
     </a>
+        <footer class = footer>
+        <div class = single_picture>
+            <img class = img src="{{ url_for('static', filename='swimming pool.jpg') }}" alt = "swimming pool" >
+        </div>
+        <div class = single_picture>
+            <img class = img src="{{ url_for('static', filename = 'ropes.jpg') }}" alt = "ropes" >
+        </div>
+        <div class = single_picture>
+            <img class = img src="{{ url_for('static', filename='trainers.jpg') }}" alt = "pair of trainers" >
+        </div>
+    </footer>
 
 
 
