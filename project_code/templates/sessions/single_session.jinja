@@ -18,6 +18,19 @@
         <p> </p>
     </div>
     <a href = "/sessions"> Back to all sessions</a>
+
+    <hr>
+
+    <div class = "member-container">
+        {% for member in members %}
+
+            <div class = "member">
+        <p> Member - {{ member.first_name}} {{ member.last_name}}</p>
+
+        {% endfor%}
+    </p>
+    </p>
+    <hr>
 </body>
 
 {% endblock %}

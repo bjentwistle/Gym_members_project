@@ -18,7 +18,8 @@ def show_all_sessions():
 @sessions_blueprint.route("/sessions/<id>")
 def show_session_index(id):
     session = session_repo.select(id)
-    return render_template("sessions/single_session.jinja", id=id, session = session)
+    members = member_repo.get_members_in_session(id)
+    return render_template("sessions/single_session.jinja", id=id, session = session, members = members)
 
 @sessions_blueprint.route('/sessions/new')
 def add_session():

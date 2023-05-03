@@ -32,10 +32,12 @@ def submit_new_booking():
     return redirect("/bookings")
 
 #to view all the bookings for one session  
-@bookings_blueprint.route("/bookings/<id>/booked_members")  
-def view_session_bookings(id):
+# @bookings_blueprint.route("/bookings/booked_members")  
+# #@bookings_blueprint.route("/bookings/<id>/booked_members")  
+# def view_session_bookings():
 
-    results = booking_repo.view_session(id)
-    session=session_repo.select(id)
+#     session_id = request.form['session_id']
+#     results = booking_repo.view_session(id)
+#     session = session_repo.select(id)
 
-    return render_template("/bookings/booked_members.jinja", bookings = results, session = session)
+#     return render_template("/bookings/booked_members.jinja", bookings = results, session = session)

@@ -54,15 +54,15 @@ def delete_all_bookings():
 
 #???
 #Show all members in one booking
-def view_session(id):
-    members = []
-    sql = "SELECT members.first_name, members.last_name FROM members INNER JOIN bookings ON members.id = bookings.members_id WHERE sessions_id = %s"
-    values = id
-    results = run_sql(sql, values)
-    for row in results:
-        member_name = (row['first_name'], row["last_name"])
+# def view_session(id):
+#     members = []
+#     sql = "SELECT members.first_name, members.last_name FROM members INNER JOIN bookings ON members.id = bookings.members_id WHERE sessions_id = %s"
+#     values = id
+#     results = run_sql(sql, values)
+#     for row in results:
+#         member_name = (row['first_name'], row["last_name"])
 
-        members.append(member_name)
-        print(members)
-    return members
+#         members.append(member_name)
+#         print(members)
+#     return members
     
