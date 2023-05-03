@@ -18,8 +18,8 @@ member_repo.save(member3)
 
 session_repo.delete_all()
 #Create instances of sessions and save
-session1 = Session("Muy Thai", 90, True)
-session2 = Session("Extreme Spin", 30, False)
+session1 = Session("Muy Thai", 90, True, "Sunday", "5PM")
+session2 = Session("Extreme Spin", 30, False, "Monday", "9AM")
 
 session_repo.save(session1)
 session_repo.save(session2)

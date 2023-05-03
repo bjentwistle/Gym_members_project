@@ -7,6 +7,7 @@
     <div>
         <h4>Name - {{ session.name }}</h4>
         <p>Duration in minutes - {{ session.duration  }} </p>
+        <p> When - {{session.what_day}} @ {{session.what_time}} </p>
         <p>Premium Session? -   
         {% if session.premium_session == True %}
             Yes

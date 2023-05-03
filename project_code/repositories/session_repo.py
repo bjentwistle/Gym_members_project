@@ -4,8 +4,8 @@ from models.session import Session
 
 #Need to be able to save gym sessions to the table
 def save(session):
-    sql = "INSERT INTO sessions (name, duration, premium_session) VALUES (%s,%s,%s) RETURNING id"
-    values = [session.name, session.duration, session.premium_session]
+    sql = "INSERT INTO sessions (name, duration, premium_session, what_day, what_time) VALUES (%s,%s,%s,%s,%s) RETURNING id"
+    values = [session.name, session.duration, session.premium_session, session.what_day, session.what_time]
     results = run_sql(sql, values)
     session.id = results[0]["id"] 
     return session
@@ -19,7 +19,7 @@ def select(id):
     
     if results:
         result = results[0]
-        session = Session(result['name'], result['duration'], result['premium_session'], result['id'])
+        session = Session(result['name'], result['duration'], result['premium_session'], result['what_day'] , result['what_time'], result['id'])
     return session
 
 #Need a function to select all the rows in the table of members 
@@ -29,14 +29,14 @@ def select_all():
     results = run_sql(sql)
     if results:
         for result in results:
-            session = Session(result['name'], result['duration'], result['premium_session'], result['id'])
+            session = Session(result['name'], result['duration'], result['premium_session'], result['what_day'], result['what_time'], result['id'])
             sessions.append(session)
         sessions.sort(key=lambda x: x.name) #from google 'sorting an object' so my sessions list stays in alphabetical order after updating. 
     return sessions
 
 def update(session):
-    sql = "UPDATE sessions SET (name, duration, premium_session) = (%s, %s, %s) WHERE id = %s"
-    values = [session.name, session.duration, session.premium_session, session.id]
+    sql = "UPDATE sessions SET (name, duration, premium_session, what_day, what_time) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [session.name, session.duration, session.premium_session,session.what_day, session.what_time, session.id]
     run_sql(sql, values)
 
 #Delete all rows from the sessions table - used for tesing purposes only

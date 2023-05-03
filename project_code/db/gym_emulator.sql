@@ -15,7 +15,9 @@ CREATE TABLE sessions (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     duration INT,
-    premium_session BOOLEAN
+    premium_session BOOLEAN,
+    what_day VARCHAR(255),
+    what_time VARCHAR(255)
 
 );
 
