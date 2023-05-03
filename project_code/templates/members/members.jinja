@@ -18,13 +18,13 @@
 
 <div class = "member">
 <h3>Name - {{ member.first_name }} {{member.last_name}} </h3>
-<p> Postcode - {{ member.postcode }} </p>
+{# <p> Postcode - {{ member.postcode }} </p>
 <p> Premium Member? - 
         {% if member.premium_member == True %}
             Yes
         {% else %}
             <i> No </i>
-        {% endif %} </p>
+        {% endif %} </p> #}
 <a href = "/members/{{ member.id }}" > Show details </a> <hr>
 
 </div>
