@@ -5,7 +5,6 @@ from models.booking import *
 
 import repositories.session_repo as session_repo
 
-
 class TestSession(unittest.TestCase):
 
     def setUp(self):
@@ -15,7 +14,6 @@ class TestSession(unittest.TestCase):
 
         self.session1 = Session("Muy Thai", 90, True)
         self.session2 = Session("Extreme Spin", 30, False)
-
 
     #Need to save data to tables first and check return to compare in a test
     @unittest.skip("comment out this line to run the test")

@@ -45,6 +45,7 @@ def select_all():
         session = session_repo.select(session_id)
         booking = Booking(member, session)
         bookings.append(booking)
+
     return bookings
 
 #Delete all rows from the bookings table - used for tesing purposes only

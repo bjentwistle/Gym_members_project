@@ -8,12 +8,10 @@ import repositories.session_repo as session_repo
 
 sessions_blueprint = Blueprint("sessions", __name__)
 
-
 @sessions_blueprint.route("/sessions")
 def show_all_sessions():
     sessions = session_repo.select_all()
     return render_template('/sessions/sessions.jinja', title = "All sessions page", sessions = sessions)
-
 
 @sessions_blueprint.route("/sessions/<id>")
 def show_session_index(id):
@@ -31,23 +29,18 @@ def submit_session():
     duration = request.form['duration']
     what_day = request.form['what_day']
     what_time = request.form['what_time']
-
-    premium_session = True if 'premium_session' in request.form else False # will cause errors if not ticked hence else False is needed.
-    
+    premium_session = True if 'premium_session' in request.form else False 
     new_session = Session(name, duration, premium_session, what_day, what_time)
     session_repo.save(new_session)
     return redirect("/sessions")
 
-
-# EDIT
-# GET '/sessions/<id>/edit'
+# EDIT - GET '/sessions/<id>/edit'
 @sessions_blueprint.route('/sessions/<id>/edit')
 def edit_session(id):
     edit_session = session_repo.select(id)
     return render_template('sessions/edit.jinja', session = edit_session)
 
-# UPDATE
-# PUT '/sessions/<id>/edit'
+# UPDATE - PUT '/sessions/<id>/edit'
 @sessions_blueprint.route("/sessions/<id>/edit", methods=['POST'])
 def update_session(id):
     session_repo.select(id)
