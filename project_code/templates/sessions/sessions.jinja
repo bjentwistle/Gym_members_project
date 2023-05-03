@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class = top-border>
-    <div class="centered"><strong>CC Gym Admin</strong></div>
+    <div class="centered"><strong>Gym Sessions Admin</strong></div>
     <img src="{{ url_for('static', filename='feet_weight_unsplash.jpg') }}" alt = "feet and round weight" style='width:100%;'>
 </div>
 <hr>
@@ -19,7 +19,7 @@
 <h3> Session - {{ session.name}} </h3>
 <h4> When - {{session.what_day}} @ {{session.what_time}} </h4>
 
-<a href = "/sessions/{{ session.id }}" > Show details </a> <!--add a link to each session selected by index in sessions /-->
+<a href = "/sessions/{{ session.id }}" > Show details </a> 
 <hr>
 
 </div>

@@ -1,0 +1,74 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #E9D5DA;
+    justify-content: center;
+    }
+    
+    header {
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(130, 115, 151, 0.5) ;
+    
+    }
+    
+    .navLink{
+        font: Arial;
+        list-style: none;
+    }
+    .top-border {
+        font-size: xx-large;
+        size: auto;
+        height: auto;
+        display: flex;
+        color: black;
+        align-items: top;
+        justify-self: center;
+        position: relative;
+        text-align: center;
+        border: 15px solid rgb(54, 48, 98, 0.5);
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    
+    .centered {
+        color: white;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    
+
+
+
+.footer {
+    grid-template-areas: 'myArea myArea . .' 'myArea myArea . .';
+    display: grid;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    row-gap: 25px;
+    column-gap: 25px;
+}
+
+.single-picture {
+    margin: 8px;
+    Padding: 10px,10px,10px,10px;
+    overflow: hidden;
+}
+
+.img {
+    height: 250px;
+    max-width: 100%;     /* Set the max-width property to 100% */
+    margin: 20px,20px,20px,20px;
+    border: 5px solid #555;
+    }
+
+.copyright {
+    justify: center ;
+    color: white;
+    font-size: xx-small;
+    background-color: rgb(77, 76, 125, 0.8) ;
+
+}
