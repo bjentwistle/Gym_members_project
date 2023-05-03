@@ -32,6 +32,7 @@ def select_all():
         for result in results:
             member = Member(result['first_name'], result['last_name'], result['postcode'], result['premium_member'], result['id'])
             members.append(member)
+            members.sort(key=lambda x: x.last_name) #shows members in alphabetical order by last name.
     return members
 
 def update(member):

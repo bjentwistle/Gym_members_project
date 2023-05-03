@@ -15,10 +15,11 @@ def show_all_bookings():
     return render_template("/bookings/bookings.jinja", bookings = bookings, sessions= sessions)
 
 @bookings_blueprint.route("/bookings/new")
-def add_session():
-    members = member_repo.select_all()
+def add_new_booking_to_session():
     sessions = session_repo.select_all()
-    return render_template('bookings/new.jinja', members = members, sessions = sessions)
+    members = member_repo.select_all()
+
+    return render_template('bookings/new.jinja', members = members , sessions = sessions)
 
 @bookings_blueprint.route("/bookings/new", methods = ["POST"])
 def submit_new_booking():
@@ -26,8 +27,8 @@ def submit_new_booking():
     member_id = request.form['member_id']
     
     member = member_repo.select(member_id)
-
     session = session_repo.select(session_id)
+
     booking_repo.save(member, session)
     return redirect("/bookings")
 
