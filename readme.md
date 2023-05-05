@@ -1,6 +1,6 @@
-###Welcome to my CodeClan Python Project.
+### Welcome to my CodeClan Python Project.
 
-###The brief:
+#### The brief:
 
 #### Gym
 
