@@ -14,7 +14,6 @@ def save(member, session):
     results = run_sql(sql, values)
     booking_id = results[0]["id"] 
     booking = Booking(member, session, booking_id)
-    #print(booking.member.first_name)
     return booking
 
 #Need to be able to select booking by its ID
@@ -26,9 +25,10 @@ def select(id):
     
     if results:
         id = results[0]['id']
-        member = member_repo.select(results['members_id'])
-        session = session_repo.select(['sessions_id'])
+        member = member_repo.select(results[0]['members_id'])
+        session = session_repo.select(results[0]['sessions_id'])
         booking = Booking(member, session, id)
+        print(booking)
     return booking
 
 #Need a function to select all the rows in the table of bookings
@@ -36,8 +36,6 @@ def select_all():
     bookings = []
     sql = "SELECT * FROM bookings"
     results = run_sql(sql)
-    # print("Here are your resulst:", results)
-
     for row in results:
         member_id = row['members_id']
         session_id = row['sessions_id']
@@ -53,17 +51,3 @@ def delete_all_bookings():
     sql = "DELETE FROM bookings"
     run_sql(sql)
 
-#???
-#Show all members in one booking
-# def view_session(id):
-#     members = []
-#     sql = "SELECT members.first_name, members.last_name FROM members INNER JOIN bookings ON members.id = bookings.members_id WHERE sessions_id = %s"
-#     values = id
-#     results = run_sql(sql, values)
-#     for row in results:
-#         member_name = (row['first_name'], row["last_name"])
-
-#         members.append(member_name)
-#         print(members)
-#     return members
-    

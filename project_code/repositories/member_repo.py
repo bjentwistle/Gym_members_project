@@ -9,6 +9,7 @@ def save(member):
     values = [member.first_name, member.last_name, member.postcode, member.premium_member]
     results = run_sql(sql, values)
     member.id = results[0]["id"]  #added to member
+    #print("Member id from member_repo.save  = " , member.id)
     return member
 
 #Need to be able to select members by theri ID
@@ -17,7 +18,6 @@ def select(id):
     sql = "SELECT * FROM members WHERE id = %s "
     values = [id]
     results = run_sql(sql, values)
-    
     if results:
         result = results[0]
         member = Member(result['first_name'], result['last_name'], result['postcode'], result['premium_member'], result['id'])

@@ -14,50 +14,43 @@ class TestBooking(unittest.TestCase):
         self.member2 = Member("Sara", "Cox", "EH4", True)
         self.member3 = Member("David", "Keen", "EH1", True)
 
-        self.session1 = Session("Muy Thai", 90, True)
-        self.session2 = Session("Extreme Spin", 30, False)
+        self.session1 = Session("Muy Thai", 90, True, "Sunday", "5PM")
+        self.session2 = Session("Extreme Spin", 30, False, "Monday", "9AM")
 
 
     #Need to save data to tables first and check return to compare in a test
     #session_repo and members_repo save functions have been tested already.
-    @unittest.skip("comment out this line to run the test")
+    #@unittest.skip("comment out this line to run the test")
     def test_save_booking(self):
-        booking_repo.delete_all()        
+        booking_repo.delete_all_bookings()       
         member_repo.delete_all()
         session_repo.delete_all()
-
         member = member_repo.save(self.member2)
         session = session_repo.save(self.session1)
-
-        booking_id = booking_repo.save(member, session)
-        booking = booking_repo.select(booking_id)
-
-        self.assertEqual(member.id, booking.member_id)
-        self.assertEqual(session.id, booking.session_id)
-        booking_repo.delete_all()
+        booking = booking_repo.save(member, session)
+        booking_id = int(booking.id)
+        booking_selected = booking_repo.select(booking_id)
+        self.assertEqual(member.id, booking_selected.member.id)
+        #self.assertEqual(session.id, booking[0].id)
+        booking_repo.delete_all_bookings()
         member_repo.delete_all()
         session_repo.delete_all()
 
     #@unittest.skip("comment out this line to run the test")
     def test_select_all_bookings(self):
-        booking_repo.delete_all()
+        booking_repo.delete_all_bookings()
         member_repo.delete_all()
         session_repo.delete_all()
-
         member1 = member_repo.save(self.member1)
         member2 = member_repo.save(self.member2)
         session1 = session_repo.save(self.session1)
-
         booking_repo.save(member2, session1)
         booking_repo.save(member1, session1)
-
         results = booking_repo.select_all()
-
         self.assertEqual(2, len(results))
-        self.assertEqual(member2.id, results[0].member_id)
-        self.assertEqual(member1.id, results[1].member_id)
-        
-        booking_repo.delete_all()
+        self.assertEqual(member2.id, results[0].member.id)
+        self.assertEqual(member1.id, results[1].member.id)
+        booking_repo.delete_all_bookings()
         member_repo.delete_all()
         session_repo.delete_all()
 

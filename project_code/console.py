@@ -24,14 +24,8 @@ session2 = Session("Extreme Spin", 30, False, "Monday", "9AM")
 session_repo.save(session1)
 session_repo.save(session2)
 
-#Create some bookings
+booking_repo.delete_all_bookings()
+#Create bookings
 booking_repo.save(member2,session1)
 booking_repo.save(member1,session2)
 booking_repo.save(member3,session1)
-
-
-#Using Mockaroo.com I could feed mick member data into the database using this for loop and with open function:
-# with open("db/members.sql", "r") as sql_file:
-#     for line in sql_file:
-#         run_sql(line)
-

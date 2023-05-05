@@ -12,11 +12,11 @@ class TestSession(unittest.TestCase):
         self.member2 = Member("Sara", "Cox", "EH4", True)
         self.member3 = Member("David", "Keen", "EH1", True)
 
-        self.session1 = Session("Muy Thai", 90, True)
-        self.session2 = Session("Extreme Spin", 30, False)
+        self.session1 = Session("Muy Thai", 90, True, "Mon", "5PM")
+        self.session2 = Session("Extreme Spin", 30, False, "Fri", "5PM")
 
     #Need to save data to tables first and check return to compare in a test
-    @unittest.skip("comment out this line to run the test")
+    #@unittest.skip("comment out this line to run the test")
     def test_save_session(self):
         session_repo.delete_all()
         session = session_repo.save(self.session1)
@@ -25,8 +25,8 @@ class TestSession(unittest.TestCase):
         self.assertEqual(True, session.premium_session)
         session_repo.delete_all()
 
-    #Need to be able to select a member by id and return it
-    @unittest.skip("comment out this line to run the test")
+    #Need to be able to select a session by id and return it
+    #@unittest.skip("comment out this line to run the test")
     def test_select_session(self):
         session_repo.delete_all()
         session = session_repo.save(self.session1)
@@ -37,7 +37,7 @@ class TestSession(unittest.TestCase):
         self.assertEqual(True, session.premium_session)
         session_repo.delete_all()
 
-    @unittest.skip("comment out this line to run the test")
+    #@unittest.skip("comment out this line to run the test")
     def test_select_all_sessions(self):
         session_repo.delete_all()
         session_repo.save(self.session1)
@@ -46,8 +46,8 @@ class TestSession(unittest.TestCase):
         self.assertEqual(2, len(list_of_sessions))
         session_repo.delete_all()
 
-    #Need to test the delete_all func - first populate using save that we know works, then delete all and then select_all that we know works and compare the empty list returnedto zero.
-    @unittest.skip("comment out this line to run the test")
+    #Need to test the delete_all func - first populate using save that we know works, then delete all and then select_all that we know works and compare the empty list returned to zero.
+    #@unittest.skip("comment out this line to run the test")
     def test_delete_all_sessions(self):
         session_repo.save(self.session1)
         session_repo.save(self.session2)
