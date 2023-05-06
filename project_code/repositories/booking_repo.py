@@ -39,9 +39,10 @@ def select_all():
     for row in results:
         member_id = row['members_id']
         session_id = row['sessions_id']
+        id = row['id']
         member = member_repo.select(member_id)
         session = session_repo.select(session_id)
-        booking = Booking(member, session)
+        booking = Booking(member, session, id)
         bookings.append(booking)
 
     return bookings

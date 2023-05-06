@@ -29,6 +29,15 @@ def submit_new_booking():
     #check if premium session, don't allow nome premium members to be booked.
     if session.premium_session and not member.premium_member: #refactored to reduce lines of code
         return redirect("/bookings/new")
-    else:
-        booking_repo.save(member, session)
-        return redirect("/bookings")
+    
+    bookings = booking_repo.select_all()
+    if bookings != None:
+        for booking in bookings:
+            #print("Member id", booking.member.id)
+            if booking.member.id == int(member_id) and booking.session.id == int(session_id):
+                #print("Booking, member id", booking.member.id)
+                return redirect("/bookings/new")
+
+    # Member not found in any existing booking, save the new booking.
+    booking_repo.save(member, session)
+    return redirect("/bookings")
