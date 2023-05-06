@@ -64,7 +64,7 @@ header {
     }
 
 .copyright {
-    justify: center ;
+    text-align: center ;
     color: white;
     font-size: xx-small;
     background-color: rgb(77, 76, 125, 0.8) ;

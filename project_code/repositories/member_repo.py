@@ -40,20 +40,17 @@ def update(member):
     values = [member.first_name, member.last_name, member.postcode, member.premium_member, member.id]
     run_sql(sql, values)
 
-#Delete all rows from the members table - used for tesing purposes only
-def delete_all():
-    sql = "DELETE FROM members"
-    run_sql(sql)
-
-
 def get_members_in_session(id):
     members = []
-
     sql = "SELECT members.* FROM members INNER JOIN bookings ON members.id = bookings.members_id WHERE sessions_id = %s"
     values = id
     results = run_sql(sql, values)
     for row in results:
-
         member = row
         members.append(member)
     return members
+
+#Delete all rows from the members table - used for tesing purposes only
+def delete_all():
+    sql = "DELETE FROM members"
+    run_sql(sql)

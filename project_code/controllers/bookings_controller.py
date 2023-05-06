@@ -23,8 +23,12 @@ def add_new_booking_to_session():
 @bookings_blueprint.route("/bookings/new", methods = ["POST"])
 def submit_new_booking():
     session_id = request.form['session_id']
+    session = session_repo.select(session_id)
     member_id = request.form['member_id']
     member = member_repo.select(member_id)
-    session = session_repo.select(session_id)
-    booking_repo.save(member, session)
-    return redirect("/bookings")
+    #check if premium session, don't allow nome premium members to be booked.
+    if session.premium_session and not member.premium_member: #refactored to reduce lines of code
+        return redirect("/bookings/new")
+    else:
+        booking_repo.save(member, session)
+        return redirect("/bookings")
