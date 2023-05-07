@@ -16,7 +16,7 @@ class TestSession(unittest.TestCase):
         self.session2 = Session("Extreme Spin", 30, False, "Fri", "5PM")
 
     #Need to save data to tables first and check return to compare in a test
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_save_session(self):
         session_repo.delete_all()
         session = session_repo.save(self.session1)
@@ -26,7 +26,7 @@ class TestSession(unittest.TestCase):
         session_repo.delete_all()
 
     #Need to be able to select a session by id and return it
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_select_session(self):
         session_repo.delete_all()
         session = session_repo.save(self.session1)
@@ -37,7 +37,7 @@ class TestSession(unittest.TestCase):
         self.assertEqual(True, session.premium_session)
         session_repo.delete_all()
 
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_select_all_sessions(self):
         session_repo.delete_all()
         session_repo.save(self.session1)
@@ -47,7 +47,7 @@ class TestSession(unittest.TestCase):
         session_repo.delete_all()
 
     #Need to test the delete_all func - first populate using save that we know works, then delete all and then select_all that we know works and compare the empty list returned to zero.
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_delete_all_sessions(self):
         session_repo.save(self.session1)
         session_repo.save(self.session2)

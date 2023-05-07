@@ -16,21 +16,6 @@ def save(member, session):
     booking = Booking(member, session, booking_id)
     return booking
 
-#Need to be able to select booking by its ID
-def select(id):
-    booking = None
-    sql = "SELECT * FROM bookings WHERE id = %s "
-    values = [id]
-    results = run_sql(sql, values)
-    
-    if results:
-        id = results[0]['id']
-        member = member_repo.select(results[0]['members_id'])
-        session = session_repo.select(results[0]['sessions_id'])
-        booking = Booking(member, session, id)
-        print(booking)
-    return booking
-
 #Need a function to select all the rows in the table of bookings
 def select_all():
     bookings = []
@@ -46,6 +31,21 @@ def select_all():
         bookings.append(booking)
 
     return bookings
+
+#Need to be able to select booking by its ID
+def select(id):
+    booking = None
+    sql = "SELECT * FROM bookings WHERE id = %s "
+    values = [id]
+    results = run_sql(sql, values)
+    
+    if results:
+        id = results[0]['id']
+        member = member_repo.select(results[0]['members_id'])
+        session = session_repo.select(results[0]['sessions_id'])
+        booking = Booking(member, session, id)
+        #print(booking)
+    return booking
 
 #Delete all rows from the bookings table - used for tesing purposes only
 def delete_all_bookings():

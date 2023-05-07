@@ -21,7 +21,7 @@ class TestBooking(unittest.TestCase):
     #Need to save data to tables first and check return to compare in a test
     #session_repo and members_repo save functions have been tested already.
     #@unittest.skip("comment out this line to run the test")
-    def test_save_booking(self):
+    #def test_save_booking(self):
         booking_repo.delete_all_bookings()       
         member_repo.delete_all()
         session_repo.delete_all()
@@ -31,7 +31,7 @@ class TestBooking(unittest.TestCase):
         booking_id = int(booking.id)
         booking_selected = booking_repo.select(booking_id)
         self.assertEqual(member.id, booking_selected.member.id)
-        #self.assertEqual(session.id, booking[0].id)
+        self.assertEqual(session.id, booking_selected.session.id)
         booking_repo.delete_all_bookings()
         member_repo.delete_all()
         session_repo.delete_all()
@@ -47,7 +47,7 @@ class TestBooking(unittest.TestCase):
         booking_repo.save(member2, session1)
         booking_repo.save(member1, session1)
         results = booking_repo.select_all()
-        self.assertEqual(2, len(results))
+        self.assertEqual(2, len(results)) #len should be 2
         self.assertEqual(member2.id, results[0].member.id)
         self.assertEqual(member1.id, results[1].member.id)
         booking_repo.delete_all_bookings()

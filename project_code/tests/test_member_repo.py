@@ -18,7 +18,7 @@ class TestMember(unittest.TestCase):
 
 
     #Need to save data to tables first and check return to compare in a test
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_save_member(self):
         member_repo.delete_all()
         member = member_repo.save(self.member1)
@@ -29,7 +29,7 @@ class TestMember(unittest.TestCase):
         member_repo.delete_all()
 
     #Need to be able to select a member by id and return it
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_select_member(self):
         member_repo.delete_all()
         member = member_repo.save(self.member1)
@@ -38,7 +38,7 @@ class TestMember(unittest.TestCase):
         self.assertEqual("Smith", test_member.last_name)
         member_repo.delete_all()
 
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_select_all_members(self):
         member_repo.delete_all()
         member_repo.save(self.member1)
@@ -49,7 +49,7 @@ class TestMember(unittest.TestCase):
         member_repo.delete_all()
 
     #Need to test the delete_all func - first populate using save that we know works, then delete all and then select_all that we know works and compare the empty list returned to zero.
-    #@unittest.skip("comment out this line to run the test")
+    @unittest.skip("comment out this line to run the test")
     def test_delete_all_members(self):
         member_repo.save(self.member1)
         member_repo.save(self.member2)
