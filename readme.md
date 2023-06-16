@@ -33,9 +33,11 @@ Then change directory so you start inside project_code. You should see the conso
 
 On the command line you will need to run a few things to get going:-
 
-```createdb gym_emulator
+```
+    createdb gym_emulator
     psql -d gym_emulator -f db/gym_emulator.sql
-    python3 console.py```
+    python3 console.py
+```
 
 You will see this response in the command line but nothing to worry about.
     (This is your error message:  no results to fetch
