@@ -51,6 +51,9 @@ You should see the homepage of the gym_emulator. The navigation bar at the top w
 
 The same format is followed by the Members nav link.
 
+![bookings page](https://github.com/bjentwistle/wk5_Gym_members_project/edit/main/screenshot.png "Booking page")
+
+
 The Bookings link shows a list of all current bookings. Click Add new booking to be directed to a form populated with sessions available in a drop down menu and the same for all members. Chose both then click Add booking. You will be redirected to the full listing of bookings.
 
 To view the list of members booked on a specific session, return to the Gym sessions page and show details of the session. A list of members will be shown.
