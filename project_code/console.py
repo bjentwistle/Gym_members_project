@@ -20,7 +20,7 @@ session_repo.delete_all()
 #Create instances of sessions and save
 session1 = Session("Muy Thai", 90, True, "Sunday", "5PM")
 session2 = Session("Extreme Spin", 30, False, "Monday", "9AM")
-#save the sessons
+#save the sessions
 session_repo.save(session1)
 session_repo.save(session2)
 

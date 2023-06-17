@@ -7,15 +7,19 @@
 
     <label class = label for="session">Select a session</label>
         <select name="session_id" id="session">
+            <option selected="true" disabled="disabled">Choose Session</option>
+
             {% for session in sessions%}
                 <option value = "{{ session.id}}" >{{ session.name}} </option>
             {% endfor %}
         </select>
 
     <label class = label for="member">Select a member</label>
-        <select name="member_id" id="member">
+        
+        <select name="member_id" id="member" >
+            <option selected="true" disabled="disabled">Choose Member</option>
+
             {% for member in members %}
-                
                 <option value = "{{ member.id }}">{{member.first_name}} {{member.last_name}}</option>
                 
             {% endfor %}

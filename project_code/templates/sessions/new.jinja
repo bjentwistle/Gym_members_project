@@ -5,17 +5,17 @@
 <a class = add_session_area >
     <form class = form-inline-add action="/sessions/new" method="post"> 
 
-    <label class = label for="name">Session name</label>
-    <input type="text" name="name" id="name">
+    <label class = label for="name" >Session name</label>
+    <input type="text" name="name" id="name" required >
 
     <label class = label for="duration">Duration in minutes</label>
-    <input type="text" name="duration" id="duration">
+    <input type="text" name="duration" id="duration" required>
 
     <label class = label for="what_day">Which day</label>
-    <input type="text" name="what_day" id="what_day">
+    <input type="text" name="what_day" id="what_day" required>
 
     <label class = label for="what_time">When</label>
-    <input type="text" name="what_time" id="what_time">
+    <input type="text" name="what_time" id="what_time" required>
 
     <label class = label for="permium_session">Premium session?</label>
     <input type="checkbox" name="premium_session" id="premium_session" value = "True">
