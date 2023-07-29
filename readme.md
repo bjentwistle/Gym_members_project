@@ -56,7 +56,7 @@ The same format is followed by the Members nav link.
 </p>
 
 
-The Bookings link shows a list of all current bookings. Click Add new booking to be directed to a form populated with sessions available in a drop down menu and the same for all members. Chose both then click Add booking. You will be redirected to the full listing of bookings.
+The Bookings link shows a list of all current bookings. Click Add new booking to be directed to a form populated with sessions available in a drop down menu and the same for all members. Choose both then click `Add booking`. You will be redirected to the full listing of bookings.
 
 To view the list of members booked on a specific session, return to the Gym sessions page and show details of the session. A list of members will be shown.
 
