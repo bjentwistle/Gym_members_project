@@ -3,35 +3,29 @@
 {% block content %}
 
 <body>
-    <h1 class="single_session"> Session details: </h1> 
-    <div>
-        <h4>Name - {{ session.name }}</h4>
-        <p>Duration in minutes - {{ session.duration  }} </p>
-        <p> When - {{session.what_day}} @ {{session.what_time}} </p>
-        <p>Premium Session? -   
-        {% if session.premium_session == True %}
-            Yes
-        {% else %}
-            <i> No </i>
-        {% endif %} </p>
-        {# May wish to put in a day and time here #}
-        <a href = "/sessions/{{session.id}}/edit"> Edit session </a>
-        <p> </p>
-    </div>
+<table>
+  <tr >
+    <th>Name of Session</th>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Premium?</th>
+    <th>Details link</th>
+  </tr>
+
+  <tr >
+    <td>{{ session.name}}</td>
+    <td>{{session.what_day}}</td>
+    <td>{{session.what_time}}</td>
+    <td>{% if session.premium_session == True %} Yes {% else %} No {%endif%} </td>
+    <td><a href = "/sessions/{{session.id}}/edit"> Edit session </a></td>
+  </tr>
+
+</table>
+    
+    <hr>
     <a href = "/sessions"> Back to all sessions</a>
-
     <hr>
-
-    <div class = "member-container">
-        {% for member in members %}
-
-            <div class = "member">
-        <p> Member - {{ member.first_name}} {{ member.last_name}}</p>
-
-        {% endfor%}
-    </p>
-    </p>
-    <hr>
+    
 </body>
     <footer class = footer>
         <div class = single_picture>

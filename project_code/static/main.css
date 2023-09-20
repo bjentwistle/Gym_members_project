@@ -41,6 +41,7 @@ header {
 /* styling for forms */
 .input_form {
     width: 50%;
+    margin:20px;
 
 }
 
@@ -56,12 +57,14 @@ table {
 
 .submit_button{
     background: rgb(130, 115, 151, 0.5);
-    color: #fff;
+    color: #000;
     border: 1px solid #eee;
-    border-radius: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 20px;
     box-shadow: 5px 5px 5px #eee;
     text-shadow: none;
-    align-self: right;
+    justify-self: right;
 }
 
 .footer {
@@ -74,9 +77,9 @@ table {
     column-gap: 25px;
 }
 
-.single-picture {
+.single_picture {
     margin: 8px;
-    Padding: 10px,10px,10px,10px;
+    Padding: 20px;
     overflow: hidden;
 }
 
