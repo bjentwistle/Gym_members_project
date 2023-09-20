@@ -38,7 +38,31 @@ header {
     transform: translate(-50%, -50%);
 }
 
+/* styling for forms */
+.input_form {
+    width: 50%;
 
+}
+
+.form_row {
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    width:100%;
+    text-align: left;
+}
+
+.submit_button{
+    background: rgb(130, 115, 151, 0.5);
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
+    align-self: right;
+}
 
 .footer {
     grid-template-areas: 'myArea myArea . .' 'myArea myArea . .';
@@ -57,7 +81,7 @@ header {
 }
 
 .img {
-    height: 250px;
+    height: 200px;
     max-width: 100%;     /* Set the max-width property to 100% */
     margin: 20px,20px,20px,20px;
     border: 5px solid rgb(54, 48, 98, 0.5)
