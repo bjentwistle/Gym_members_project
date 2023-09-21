@@ -5,22 +5,20 @@
 <form class = input_form action="/sessions/{{session.id}}/edit" method="post">
 <div class = form_row>
     <label for="name">Name </label>
-    <input type="text" id="name" name="name" value="{{session.name}}" required autofocus>
+    <input type="text" id="name" name="name" value="{{session.name}}" required autofocus style="width:350px;">
 </div>
-
-<div class = form_row>
-    <label for="duration">Duration </label>
-    <input type="number" id="duration" name="duration" value="{{session.duration}}" required>
-</div>
-
 <div class = form_row>
     <label for="what_day">What day </label>
-    <input type="text" id="what_day" name="what_day" value="{{session.what_day}}" required>
+    <input type="text" id="what_day" name="what_day" value="{{session.what_day}}" required style="width:350px;">
 </div>
 
 <div class = form_row>
     <label for="what_time">When </label>
-    <input type="text" id="what_time" name="what_time" value="{{session.what_time}}" required>
+    <input type="text" id="what_time" name="what_time" value="{{session.what_time}}" required style="width:350px;">
+</div>
+<div class = form_row>
+    <label for="duration">Duration </label>
+    <input type="number" id="duration" name="duration" value="{{session.duration}}" required style="width:350px;">
 </div>
 
 <div class = form_row>
@@ -39,8 +37,9 @@
 
     </select>
 </div>
+    <input class = submit_button type="submit" value="Update session" style="font-weight: bold;">
 
-<button type="submit">Update session</button>
+{# <button type="submit">Update session</button> #}
 
 </form>
 

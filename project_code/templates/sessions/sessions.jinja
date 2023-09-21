@@ -19,6 +19,7 @@
     <th>Name of Session</th>
     <th>Day</th>
     <th>Time</th>
+    <th>Duration</th>
     <th>Premium?</th>
     <th>Details link</th>
   </tr>
@@ -28,6 +29,7 @@
     <td>{{ session.name}}</td>
     <td>{{session.what_day}}</td>
     <td>{{session.what_time}}</td>
+    <td>{{session.duration}}</td>
     <td>{% if session.premium_session == True %} Yes {% else %} No {%endif%} </td>
     <td><a href = "/sessions/{{ session.id }}" > Show details </a> </td>
 
