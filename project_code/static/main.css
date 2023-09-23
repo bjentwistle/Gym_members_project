@@ -48,6 +48,7 @@ header {
 .form_row {
     display: flex;
     justify-content: space-between;
+    
 }
 
 table {
