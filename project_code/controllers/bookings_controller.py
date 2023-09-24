@@ -12,7 +12,7 @@ bookings_blueprint = Blueprint("bookings", __name__)
 def show_all_bookings():
     bookings = booking_repo.select_all()
     sessions = session_repo.select_all()
-    return render_template("/bookings/bookings.jinja", bookings = bookings, sessions= sessions)
+    return render_template("/bookings/bookings.jinja", title = "All bookings page", bookings = bookings, sessions= sessions)
 
 @bookings_blueprint.route("/bookings/new")
 def add_new_booking_to_session():
@@ -41,3 +41,20 @@ def submit_new_booking():
     # Member not found in any existing booking, save the new booking.
     booking_repo.save(member, session)
     return redirect("/bookings")
+
+# New route to handle booking deletion
+@bookings_blueprint.route("/bookings/delete/<int:booking_id>", methods=["POST"])
+def delete_booking(booking_id):
+    # Find the booking by its ID
+    booking = booking_repo.select(booking_id)
+
+    if booking is None:
+        # Handle the case where the booking doesn't exist
+        return redirect("/bookings")  # Redirect back to bookings page or show an error
+
+    # Delete the booking
+    booking_repo.delete(booking)
+
+    # Redirect to the bookings page (or any other appropriate page)
+    return redirect("/bookings")
+

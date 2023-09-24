@@ -2,22 +2,24 @@
 
 {% block content %}
 <h1>Add a new booking: </h1>
-<a class = add_booking_area >
-    <form class = form-inline-add action="/bookings/new" method="post"> 
 
+    <form class = input_form action="/bookings/new" method="post"> 
+    <div class = form_row>
     <label class = label for="session">Select a session</label>
-        <select name="session_id" id="session">
+        <select name="session_id" id="session" style = "width:350px;">
             <option selected="true" disabled="disabled">Choose Session</option>
 
             {% for session in sessions%}
                 <option value = "{{ session.id}}" >{{ session.name}} </option>
             {% endfor %}
         </select>
+    </div>
 
+    <div class = form_row> 
     <label class = label for="member">Select a member</label>
-        
-        <select name="member_id" id="member" >
-            <option selected="true" disabled="disabled">Choose Member</option>
+    
+        <select name="member_id" id="member" style = "width:350px;">
+            <option selected="true" disabled="disabled" >Choose Member</option>
 
             {% for member in members %}
                 <option value = "{{ member.id }}">{{member.first_name}} {{member.last_name}}</option>
@@ -25,10 +27,10 @@
             {% endfor %}
         
         </select>
-
-    <input class = add_session type="submit" value="Add Booking" style="font-weight: bold;">
+    </div> 
+    <input class = submit_button type="submit" value="Add Booking" style="font-weight: bold;">
     </form>
-    </a>
+    
     <footer class = footer>
         <div class = single_picture>
             <img class = img src="{{ url_for('static', filename='swimming pool.jpg') }}" alt = "swimming pool" >

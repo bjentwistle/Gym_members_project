@@ -29,7 +29,8 @@ def select_all():
         session = session_repo.select(session_id)
         booking = Booking(member, session, id)
         bookings.append(booking)
-
+        # sort bookings by session names.
+        bookings.sort(key=lambda x: x.session.name) 
     return bookings
 
 #Need to be able to select booking by its ID
@@ -52,3 +53,8 @@ def delete_all_bookings():
     sql = "DELETE FROM bookings"
     run_sql(sql)
 
+#Need to be able to delete booking by its ID
+def delete(id):
+    sql = "DELETE * FROM bookings WHERE id = %s "
+    values = [id]
+    run_sql(sql, values)

@@ -15,8 +15,8 @@
 
 <table class=table-striped>
   <tr >
-    <th>Name</th>
     <th>Session</th>
+    <th>Name</th>
     <th>Premium</th>
     <th>Cancel </th>
   </tr>
@@ -25,8 +25,8 @@
 {% for booking in bookings %}
 
 <tr>
-    <td>{{ booking.member.first_name}} {{ booking.member.last_name}}</td> 
     <td>{{ booking.session.name }} </td>
+    <td>{{ booking.member.first_name}} {{ booking.member.last_name}}</td> 
     <td>{% if booking.session.premium_session == True %}
             Yes
         {% else %}
