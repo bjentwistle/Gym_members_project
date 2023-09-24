@@ -7,7 +7,7 @@ justify-content: center;
 header {
     display: flex;
     flex-direction: row;
-    background-color: rgb(130, 115, 151, 0.5) ;
+    background-color: rgba(107, 101, 117, 0.5) ;
 
 }
 
@@ -56,13 +56,34 @@ table {
     text-align: left;
 }
 
+  /* Define CSS classes for alternating table row shading */
+  .table-striped {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table-striped th, .table-striped td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  /* Define background colors for even and odd rows */
+  .table-striped tr:nth-child(even) {
+    background-color: rgba(182, 173, 198, 0.5) ; /* Light gray for even rows */
+  }
+
+  .table-striped tr:nth-child(odd) {
+    background-color: rgba(103, 98, 112, 0.5) ; /* White for odd rows */
+  }
+
 .submit_button{
     background: rgb(130, 115, 151, 0.5);
     color: #000;
     border: 1px solid #eee;
     border-radius: 15px;
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
     box-shadow: 5px 5px 5px #eee;
     text-shadow: none;
     justify-self: right;

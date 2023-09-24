@@ -3,24 +3,34 @@
 {% block content %}
 
 <body>
-    <h1 class="single_member"> Member details: </h1> 
-    <div>
-        <h4>First name - {{ member.first_name }} </h4> 
-        <h4>Last name - {{ member.last_name }}</h4>
-        <p> Postcode - {{ member.postcode  }} </p>
-        <p>Premium Member? -
+
+    <table class = table-striped>
+    <tr >
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Postcode</th>
+        <th>Premium Member?</th>
+        <th>Details</th>
+    </tr>
+
+    <tr >
+    <td>{{ member.first_name }} </td> 
+    <td>{{ member.last_name }} </td> 
+    <td>{{ member.postcode  }} </td> 
+    <td> 
         {% if member.premium_member == True %}
             Yes
         {% else %}
             <i> No </i>
-        {% endif %} </p>
-
-        <a href = "/members/{{member.id}}/edit"> Edit member </a>
-    </div>
-    <hr>
+        {% endif %} </td>
+    <td><a href = "/members/{{member.id}}/edit"> Edit member </a></td>
+ 
+ </tr>
+ </table>
+ <hr>
 
     <a href = "/members"> Back to all members</a>
-    <p> </p>
+    
     <footer class = footer>
         <div class = single_picture>
             <img class = img src="{{ url_for('static', filename='swimming pool.jpg') }}" alt = "swimming pool" >

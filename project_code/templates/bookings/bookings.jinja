@@ -11,21 +11,33 @@
 <p></p>
 <a href = "bookings/new" > Add new booking</a> 
 <p></p>
-<hr>
+
+
+<table class=table-striped>
+  <tr >
+    <th>Name</th>
+    <th>Session</th>
+    <th>Premium</th>
+    <th>Cancel </th>
+  </tr>
 
 <div class = "booking-container">
 {% for booking in bookings %}
 
-<div class = "booking">
-<p> Member - {{ booking.member.first_name}} {{ booking.member.last_name}} </p>
-<p> Session -  {{ booking.session.name }} </p>
-
-</p>
-</p>
-<hr>
-</div>
-
+<tr>
+    <td>{{ booking.member.first_name}} {{ booking.member.last_name}}</td> 
+    <td>{{ booking.session.name }} </td>
+    <td>{% if booking.session.premium_session == True %}
+            Yes
+        {% else %}
+            <i> - </i>
+        {% endif %}</td>
+    <td><button class = submit_button type="submit">X</button></td>
+    {# To do - button will delete booking from bookings table when connected #}
+</tr>
 {% endfor %}
+
+</table>
 </div>
 
 {% endblock %}
