@@ -62,7 +62,7 @@ You should see the homepage of the gym_emulator. The navigation bar at the top w
 The same format is followed by the Members nav link.
 
 <p align="center">
-  <img src="https://github.com/bjentwistle/wk5_Gym_members_project/blob/main/Screenshot.png" width="450" title="Booking page">
+  <img src="https://github.com/bjentwistle/wk5_Gym_members_project/blob/main/Screenshot2.png" width="450" title="Booking page">
 </p>
 
 
