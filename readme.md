@@ -1,4 +1,4 @@
-### Welcome to my CodeClan Python Project.
+### Welcome to my Solo CodeClan Python Project.
 
 The brief:
 
@@ -26,10 +26,11 @@ A local gym has asked you to build a piece of software to help them to manage me
 
 ### Setup
 
-Before you can run this code repository on your own machine you will need to:
-download the whole folder called project_code.
+Before you can run this code repository on your own machine you will need to: clone the repository to your local drive and navigate to the folder called project_code.
 
-Then change directory so you start inside project_code. You should see the console.py file as well as run_tests.py and app.py (run this file if you want to start with an empty database).
+You should see the console.py file as well as run_tests.py and app.py (run this file if you want to start with an empty database).
+
+You will need Python3 and psql installed.
 
 On the command line you will need to run a few things to get going:-
 
@@ -40,8 +41,17 @@ python3 console.py
 ```
 
 You will see this response in the command line but nothing to worry about.
-    (This is your error message:  no results to fetch
-     This is your error message:  no results to fetch)
+    (DROP TABLE
+DROP TABLE
+DROP TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+This is your error message:  no results to fetch
+This is your error message:  no results to fetch
+This is your error message:  no results to fetch)
+
+Now type:-
 
 ```flask run```
 
@@ -58,6 +68,4 @@ The same format is followed by the Members nav link.
 
 The Bookings link shows a list of all current bookings. Click Add New Booking to be directed to a form populated with sessions available in a drop down menu and the same for all members. Choose both then click Add Booking. You will be redirected to the full listing of bookings.
 
-To view the list of members booked on a specific session, return to the Gym sessions page and show details of the session. A list of members will be shown.
-
-Further work is needed to make use of the premium member and premium session attributes I have added and I would like to be able to deactivate and re-activate members and sessions.
+Further work is needed to make use of the premium member and premium session attributes I have added and I would like to be able to deactivate and re-activate members, sessions and bookings.
