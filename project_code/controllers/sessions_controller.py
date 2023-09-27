@@ -11,17 +11,17 @@ sessions_blueprint = Blueprint("sessions", __name__)
 @sessions_blueprint.route("/sessions")
 def show_all_sessions():
     sessions = session_repo.select_all()
-    return render_template('/sessions/sessions.jinja', title = "All sessions page", sessions = sessions)
+    return render_template('/sessions/sessions.jinja', title = "All sessions", sessions = sessions)
 
 @sessions_blueprint.route("/sessions/<id>")
 def show_session_index(id):
     session = session_repo.select(id)
     members = member_repo.get_members_in_session(id)
-    return render_template("sessions/single_session.jinja", id=id, session = session, members = members)
+    return render_template("sessions/single_session.jinja", id=id, title = "Session details", session = session, members = members)
 
 @sessions_blueprint.route('/sessions/new')
 def add_session():
-    return render_template('sessions/new.jinja')
+    return render_template('sessions/new.jinja', title = "New session")
 
 @sessions_blueprint.route('/sessions/new', methods = ["POST"])
 def submit_session():
@@ -38,7 +38,7 @@ def submit_session():
 @sessions_blueprint.route('/sessions/<id>/edit')
 def edit_session(id):
     edit_session = session_repo.select(id)
-    return render_template('sessions/edit.jinja', session = edit_session)
+    return render_template('sessions/edit.jinja', title = "Edit session", session = edit_session)
 
 # UPDATE - PUT '/sessions/<id>/edit'
 @sessions_blueprint.route("/sessions/<id>/edit", methods=['POST'])

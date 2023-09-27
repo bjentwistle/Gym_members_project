@@ -1,10 +1,16 @@
 {% extends "base.jinja" %}
 
+
+
 {% block content %}
 <div class = top-border>
-    <div class="centered"><strong>Welcome to CC Gym Admin!</strong></div>
-    <img src="{{ url_for('static', filename='gym_equipment.jpg') }}" alt = "gym_equipment" style='width:100%;'>
+    <div class="centered" ><strong>Welcome to CC Gym Admin!</strong></div>
+    <img src="{{ url_for('static', filename='gym_equipment.jpg') }}"   alt = "gym_equipment" style='width:100%;'>
 </div>
 
 <hr>
+{% endblock %}
+
+{% block extra_head %}
+<title>Home</title>
 {% endblock %}

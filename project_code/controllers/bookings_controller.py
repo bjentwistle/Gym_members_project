@@ -12,13 +12,13 @@ bookings_blueprint = Blueprint("bookings", __name__)
 def show_all_bookings():
     bookings = booking_repo.select_all()
     sessions = session_repo.select_all()
-    return render_template("/bookings/bookings.jinja", title = "All bookings page", bookings = bookings, sessions= sessions)
+    return render_template("/bookings/bookings.jinja", title = "All bookings", bookings = bookings, sessions= sessions)
 
 @bookings_blueprint.route("/bookings/new")
 def add_new_booking_to_session():
     sessions = session_repo.select_all()
     members = member_repo.select_all()
-    return render_template('bookings/new.jinja', members = members , sessions = sessions)
+    return render_template('bookings/new.jinja', title = "New booking", members = members , sessions = sessions)
 
 @bookings_blueprint.route("/bookings/new", methods = ["POST"])
 def submit_new_booking():
