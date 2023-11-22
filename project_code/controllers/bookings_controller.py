@@ -33,9 +33,9 @@ def submit_new_booking():
     bookings = booking_repo.select_all()
     if bookings != None:
         for booking in bookings:
-            #print("booking id", booking.member.id)
+            
             if booking.member.id == int(member_id) and booking.session.id == int(session_id):
-                #print("Booking, booking id", booking.member.id)
+                
                 return redirect("/bookings/new")
 
     # booking not found in any existing booking, save the new booking.

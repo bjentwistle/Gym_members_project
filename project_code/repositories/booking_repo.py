@@ -42,7 +42,7 @@ def select(id):
     
     if results:
         booking = results[0]
-        print(booking)
+       
     return booking
 
 #Delete all rows from the bookings table - used for testing purposes only
