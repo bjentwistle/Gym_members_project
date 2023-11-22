@@ -65,13 +65,11 @@ def delete_booking(booking_id):
 
     if booking is None:
         # Handle the case where the booking doesn't exist
-        flash("Booking not found", "error")
         return redirect("/bookings")  # Redirect back to bookings page or show an error
 
     # Delete the booking
     booking_repo.delete(booking_id)
 
     # Redirect to the bookings page (or any other appropriate page)
-   
     return redirect("/bookings")
 

@@ -16,7 +16,12 @@
     <td>{{ booking.first_name }}  </td> 
     <td>{{ booking.last_name }} </td> 
     <td>{{ booking.name }} </td>         
-    <td><a href = "/bookings/delete/{{booking.id}}"> Delete booking </a></td>
+    <td>
+        {# <a href = "/bookings/delete/{{booking.id}}"> Delete booking </a> #}
+        <form action="/bookings/delete/{{ booking.id }}" method="GET">
+            <button type="submit" class="btn btn-danger">Delete booking</button>
+        </form>
+    </td>
  
  </tr>
  </table>
