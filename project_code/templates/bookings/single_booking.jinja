@@ -1,0 +1,45 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+
+<body>
+
+    <table class = table-striped>
+    <tr >
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Session</th>
+        <th>Cancel?</th>
+    </tr>
+
+    <tr >
+    <td>{{ booking.first_name }}  </td> 
+    <td>{{ booking.last_name }} </td> 
+    <td>{{ booking.name }} </td>         
+    <td>
+        <form class = "delete-form" action="/bookings/delete/{{ booking.id }}" method="GET">
+            <button type="submit" class="btn btn-danger">Cancel booking</button>
+        </form>
+    </td>
+ 
+ </tr>
+ </table>
+ <hr>
+
+    <a href = "/bookings"> Back to all bookings</a>
+    
+    <footer class = footer>
+        <div class = single_picture>
+            <img class = img src="{{ url_for('static', filename='swimming pool.jpg') }}" alt = "swimming pool" >
+        </div>
+        <div class = single_picture>
+            <img class = img src="{{ url_for('static', filename = 'ropes.jpg') }}" alt = "ropes" >
+        </div>
+        <div class = single_picture>
+            <img class = img src="{{ url_for('static', filename='trainers.jpg') }}" alt = "pair of trainers" >
+        </div>
+    </footer>
+    
+</body>
+
+{% endblock %}

@@ -36,25 +36,24 @@ def select_all():
 #Need to be able to select booking by its ID
 def select(id):
     booking = None
-    sql = "SELECT * FROM bookings WHERE id = %s "
+    sql = "SELECT bookings.id, members.first_name, members.last_name, sessions.name FROM members JOIN bookings ON members.id = bookings.members_id JOIN sessions ON sessions.id = bookings.sessions_id WHERE bookings.id = %s "
     values = [id]
     results = run_sql(sql, values)
     
     if results:
-        id = results[0]['id']
-        member = member_repo.select(results[0]['members_id'])
-        session = session_repo.select(results[0]['sessions_id'])
-        booking = Booking(member, session, id)
-        #print(booking)
+        booking = results[0]
+       
     return booking
 
-#Delete all rows from the bookings table - used for tesing purposes only
+#Delete all rows from the bookings table - used for testing purposes only
 def delete_all_bookings():
     sql = "DELETE FROM bookings"
     run_sql(sql)
 
 #Need to be able to delete booking by its ID
 def delete(id):
-    sql = "DELETE * FROM bookings WHERE id = %s "
-    values = [id]
-    run_sql(sql, values)
+    booking = select(id)  # Check if the booking exists
+    if booking:
+        sql = "DELETE FROM bookings WHERE id = %s "
+        values = [id]
+        run_sql(sql, values)
