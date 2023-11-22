@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request
+from flask import flash, render_template, redirect, request
 from flask import Blueprint
 from models.booking import *
 
@@ -33,28 +33,45 @@ def submit_new_booking():
     bookings = booking_repo.select_all()
     if bookings != None:
         for booking in bookings:
-            #print("Member id", booking.member.id)
+            #print("booking id", booking.member.id)
             if booking.member.id == int(member_id) and booking.session.id == int(session_id):
-                #print("Booking, member id", booking.member.id)
+                #print("Booking, booking id", booking.member.id)
                 return redirect("/bookings/new")
 
-    # Member not found in any existing booking, save the new booking.
+    # booking not found in any existing booking, save the new booking.
     booking_repo.save(member, session)
     return redirect("/bookings")
 
+
+@bookings_blueprint.route("/bookings/<id>")
+def show_booking_index(id):
+    booking = booking_repo.select(id)
+    if booking is None:
+        # Handle the case where the booking doesn't exist
+        return redirect("/bookings")  # Redirect back to bookings page or show an error
+
+    # Fetch member and session details for the booking
+    # member = member_repo.select(booking.members_id)
+    # session = session_repo.select(booking.sessions_id)
+
+    return render_template("/bookings/single_booking.jinja", title = "Booking details", booking=booking)
+
+
 # New route to handle booking deletion
-@bookings_blueprint.route("/bookings/delete/<int:booking_id>", methods=["POST"])
+@bookings_blueprint.route("/bookings/delete/<int:booking_id>", methods=["GET"])
 def delete_booking(booking_id):
     # Find the booking by its ID
     booking = booking_repo.select(booking_id)
 
     if booking is None:
         # Handle the case where the booking doesn't exist
+        flash("Booking not found", "error")
         return redirect("/bookings")  # Redirect back to bookings page or show an error
 
     # Delete the booking
-    booking_repo.delete(booking)
+    booking_repo.delete(booking_id)
 
     # Redirect to the bookings page (or any other appropriate page)
+   
     return redirect("/bookings")
 
